@@ -1,0 +1,29 @@
+{
+  "platform-version": "3.0",
+  "app_id": "freshdesk_bizbox_widget",
+  "engines": {
+    "node": "18.18.2",
+    "fdk": "9.3.0"
+  },
+  "whitelisted-domains": [
+    "https://*.freshdesk.com",
+    "https://*.freshworks.com",
+    "https://raw.githubusercontent.com",
+    "https://sl.wikipedia.org"
+  ],
+  "modules": {
+    "ui": {
+      "locations": {
+        "ticket_sidebar": {
+          "url": "app/index.html",
+          "icon": "app/bizbox_logo_icon.png"
+        }
+      }
+    }
+  },
+  "supported_products": [
+    "freshdesk",
+    "freshsales",
+    "freshservice"
+  ]
+}
