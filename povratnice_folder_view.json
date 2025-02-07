@@ -1,34 +1,17 @@
 [
     {
         "pattern": "IZDAJATELJA ZA RAČUN (SI\\d{17}), BIC BANKE ([A-Z0-9]+) IN DAVČNO ŠTEVILKO (SI\\d+) NI MOGOČE NAJTI!",
-        "response": "Napaka pomeni, da izdajatelja računa <strong>${1}</strong> z BIC kodo <strong>${2}</strong> in davčno številko <strong>${3}</strong> ni mogoče najti. Preverite pravilnost podatkov."
+        "message": "Napaka pomeni, da izdajatelja računa {{iban}} z BIC kodo {{bic}} in davčno številko {{tax_number}} ni mogoče najti. Preverite pravilnost podatkov.",
+        "variables": ["iban", "bic", "tax_number"]
     },
     {
         "pattern": "Račun (SI\\d{17}) ne ustreza IBAN formatu!",
-        "response": "Napaka pomeni, da IBAN <strong>${1}</strong> ni v pravilni obliki. Preverite, ali je zapis pravilen in ustreza formatu SI56XXXXXXXXXXXXXXX."
+        "message": "Napaka pomeni, da IBAN {{iban}} ni v pravilni obliki. Preverite, ali je zapis pravilen in ustreza formatu SI56XXXXXXXXXXXXXXX.",
+        "variables": ["iban"]
     },
     {
         "pattern": "BIC prejemnika \\[(.*?)\\] ni registriran v Bankart omrežju!",
-        "response": "Napaka pomeni, da BIC <strong>${1}</strong> ni registriran v Bankart omrežju. Preverite pravilnost BIC kode in če prejemnik sprejema eRačune."
-    },
-    {
-        "pattern": "Prejemnika z računom (SI\\d{17}) in davčno številko (SI\\d+) ni mogoče najti!",
-        "response": "Napaka pomeni, da prejemnik z računom <strong>${1}</strong> in davčno številko <strong>${2}</strong> ne obstaja v sistemu. Preverite pravilnost podatkov."
-    },
-    {
-        "pattern": "Napaka pri validaciji: Velikost prilog je prevelika: (\\d+) KB. Največja dovoljena velikost je (\\d+) KB!",
-        "response": "Napaka pomeni, da velikost prilog <strong>${1} KB</strong> presega največjo dovoljeno velikost <strong>${2} KB</strong>. Poskusite zmanjšati velikost prilog."
-    },
-    {
-        "pattern": "Ime datoteke, ki je dodana kot priloga \\d+, ne sme vsebovati presledkov in šumnikov.",
-        "response": "Napaka pomeni, da ime priloge vsebuje neveljavne znake. Priloga naj vsebuje samo črke, številke in podčrtaje (_)."
-    },
-    {
-        "pattern": "Dokument ne ustreza predpisani shemi.*eSlog 2.00!",
-        "response": "Napaka pomeni, da dokument ni v pravilni eSlog 2.0 obliki. Preverite, ali je XML skladen s predpisano XSD shemo."
-    },
-    {
-        "pattern": "Račun prejemnika (SI\\d{17}) ali njegov naslednik ne obstaja ali ni aktiven!",
-        "response": "Napaka pomeni, da račun prejemnika <strong>${1}</strong> ne obstaja ali ni aktiven. Preverite TRR prejemnika."
+        "message": "Napaka pomeni, da BIC {{bic}} ni registriran v Bankart omrežju. Preverite pravilnost BIC kode in če prejemnik sprejema eRačune.",
+        "variables": ["bic"]
     }
 ]
