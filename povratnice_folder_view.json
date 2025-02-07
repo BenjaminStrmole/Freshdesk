@@ -1,78 +1,10 @@
 [
-    {
-        "pattern": "IZDAJATELJA ZA RAČUN .*?, BIC BANKE .*? IN DAVČNO ŠTEVILKO .*? NI MOGOČE NAJTI!",
-        "response": "Napaka pomeni, da izdajatelja računa ni mogoče najti. Preverite pravilnost podatkov, kot so IBAN, BIC koda in davčna številka."
-    },
-    {
-        "pattern": "Račun .*? ne ustreza IBAN formatu!",
-        "response": "Napaka pomeni, da IBAN ni v pravilni obliki. Preverite, ali je zapis pravilen in ustreza formatu SI56XXXXXXXXXXXXXXX."
-    },
-    {
-        "pattern": "BIC prejemnika .*? ni registriran v Bankart omrežju!",
-        "response": "Napaka pomeni, da BIC ni registriran v Bankart omrežju. Preverite pravilnost BIC kode in če prejemnik sprejema eRačune."
-    },
-    {
-        "pattern": "Prejemnika z računom .*? in davčno številko .*? ni mogoče najti!",
-        "response": "Napaka pomeni, da prejemnik ne obstaja v sistemu. Preverite pravilnost podatkov."
-    },
-    {
-        "pattern": "Napaka pri validaciji: Velikost prilog je prevelika: .*? KB. Največja dovoljena velikost je .*? KB!",
-        "response": "Napaka pomeni, da velikost prilog presega največjo dovoljeno velikost. Poskusite zmanjšati velikost prilog."
-    },
-    {
-        "pattern": "Dokument ne ustreza predpisani shemi.*?eSlog 2.00!",
-        "response": "Napaka pomeni, da dokument ni v pravilni eSlog 2.0 obliki. Preverite, ali je XML skladen s predpisano XSD shemo."
-    },
-    {
-        "pattern": "Račun prejemnika .*? ali njegov naslednik ne obstaja ali ni aktiven!",
-        "response": "Napaka pomeni, da račun prejemnika ne obstaja ali ni aktiven. Preverite TRR prejemnika."
-    },
-    {
-        "pattern": "Napaka: Ovojnica e-računa lahko vsebuje največ tri priponke.",
-        "response": "Napaka pomeni, da sistem, v katerega pošiljate račun, dovoljuje največ tri priloge. Odstranite odvečne priloge in poskusite znova."
-    },
-    {
-        "pattern": "Napaka: Sklic plačila .*? ni v pravilni dolžini",
-        "response": "Napaka pomeni, da sklic plačila ni v pravilni dolžini. Preverite, ali ustreza pravilom eSlog."
-    },
-    {
-        "pattern": "Napaka: Ovojnica ne ustreza predpisani shemi. Napaka v vrstici .*? in stolpcu .*?!",
-        "response": "Napaka pomeni, da XML ovojnica ne ustreza predpisani shemi. Preverite XML strukturo in napake."
-    },
-    {
-        "pattern": "Napaka: Manjkajoči podatki o izdajatelju.*?",
-        "response": "Napaka pomeni, da v XML računu manjkajo obvezni podatki o izdajatelju dokumenta."
-    },
-    {
-        "pattern": "Napaka: IBAN prejemnika ni mogoče najti ali ni pravilen!",
-        "response": "Napaka pomeni, da IBAN prejemnika ni pravilno zapisan ali ga ni mogoče najti v sistemu. Preverite številko TRR."
-    },
-    {
-        "pattern": "Napaka: Nezadosten nivo pravic ali pa izdajatelja za davčno številko .*? ni mogoče najti!",
-        "response": "Napaka pomeni, da nimate zadostnih pravic za izdajanje računov ali pa izdajatelja ni mogoče najti."
-    },
-    {
-        "pattern": "Napaka: Napačna oblika reference plačila: Sklic .*? je napačen!",
-        "response": "Napaka pomeni, da je sklic napačno zapisan. Preverite obliko sklica in odstranite odvečne znake."
-    },
-    {
-        "pattern": "Napaka: Dokument v prilogi ne ustreza predpisani shemi.*?",
-        "response": "Napaka pomeni, da priloga dokumenta ni v pravilnem formatu. Preverite, ali je skladna s standardi eSlog."
-    },
-    {
-        "pattern": "Napaka: Prejemnika z računom .*? ni mogoče najti v sistemu UJPnet!",
-        "response": "Napaka pomeni, da prejemnika z računom ni mogoče najti v sistemu UJPnet. Preverite pravilnost podatkov."
-    },
-    {
-        "pattern": "Napaka pri validaciji: '0000-00-00' is not a valid value for 'date'",
-        "response": "Napaka pomeni, da je v XML datoteki napačno zapisan datum. Pravilen format je YYYY-MM-DD."
-    },
-    {
-        "pattern": "Napaka: Priloga pod zaporedno št. .*?: Certifikat .*? ni veljaven, razlog: .*?",
-        "response": "Napaka pomeni, da certifikat v podpisu ni veljaven. Preverite veljavnost certifikata."
-    },
-    {
-        "pattern": "Napaka: Ne najdem prejemnika, ker izdajatelj ni znan!",
-        "response": "Napaka pomeni, da prejemnika ni mogoče najti, ker izdajatelj ni registriran. Preverite nastavitve izdajatelja v sistemu."
-    }
+  {
+    "pattern": "IZDAJATELJA ZA RAČUN.*?, BIC BANKE.*?, IN DAVČNO ŠTEVILKO.*?NI MOGOČE NAJTI!",
+    "response": "Napaka pomeni, da sistem ne more najti izdajatelja, prejemnika ali podatkov. Preverite pravilnost IBAN, BIC kode ali davčne številke."
+  },
+  {
+    "pattern": "IZDAJATELJA ZA RAČUN.*?NI MOGOČE NAJTI!",
+    "response": "Napaka pomeni, da izdajatelja računa ni mogoče najti. Preverite IBAN ali druge podatke."
+  }
 ]
