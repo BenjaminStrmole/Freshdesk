@@ -98,7 +98,10 @@
     {
         "pattern": "¨-99¨ \\[¨HALICL0033: (.*?)`(.*?)`\\. Recipient agent BIC `(.*?)` for transaction \\(sequence number=`(.*?)`, doc_id=`(.*?)`\\) does not match any of the active participants\\.¨\\]",
         "response": "Napako prejmete s strani bančnega omrežja, saj dokumenta ni mogoče v prejemnikov predal zaradi napačne BIC kode."
+    },
+    {
+    "pattern": "¨-99¨ \\[¨(.*?),\\sBIC BANKE (.*?)\\sIN DAVČNO ŠTEVILKO (.*?)\\sNI MOGOČE NAJTI!¨\\]",
+    "response": "Napako prejmete, saj računa ni bilo mogoče usmeriti zaradi napačne BIC kode prejemnika."
     }
-
 
 ]
