@@ -80,8 +80,8 @@
         "response": "Napako prejmete zaradi pomanjkljivega ali manjkajočega IC elementa v XML datoteki računa, ki je obvezen za pošiljanje HR prejemnikom."
     },
     {
-        "pattern": "(.*?)Priloga pod zaporedno št\\. \\d+: Dokument ne ustreza predpisani shemi\\. Dovoljeni dokumenti: (.*?)!",
-        "response": "Dokument ni poslan v ustrezni obliki oz. poslani eSlog 2.0 ni zapisan po predpisani XSD shemi – kontaktiraj ponudnika informacijske rešitve."
+    "pattern": "(.*?)Priloga pod zaporedno št\\. \\d+: Dokument ne ustreza predpisani shemi\\. Dovoljeni dokumenti: (.*?)!",
+    "response": "Dokument ni poslan v ustrezni obliki oz. poslani eSlog 2.0 ni zapisan po predpisani XSD shemi – kontaktiraj ponudnika informacijske rešitve."
     },
     {
         "pattern": "(.*?)Dokument ne zadovoljava XSD schemu: (.*?) for (.*?)",
