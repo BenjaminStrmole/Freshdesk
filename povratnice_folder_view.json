@@ -100,8 +100,9 @@
         "response": "Napako prejmete s strani bančnega omrežja, saj dokumenta ni mogoče v prejemnikov predal zaradi napačne BIC kode."
     },
     {
-    "pattern": "¨-99¨ \\[¨(.*?),\\sBIC BANKE (.*?)\\sIN DAVČNO ŠTEVILKO (.*?)\\sNI MOGOČE NAJTI!¨\\]",
-    "response": "Napako prejmete, saj računa ni bilo mogoče usmeriti zaradi napačne BIC kode prejemnika."
+        "pattern": "(.*?)\\[¨(.*?)\\sZA RAČUN\\s(.*?)\\sBIC BANKE\\s(.*?)\\sIN DAVČNO ŠTEVILKO\\s(.*?)\\s(.*?)¨\\](.*?)",
+        "response": "Napako prejmete, saj računa ni bilo mogoče usmeriti zaradi napačne BIC kode prejemnika."
     }
+
 
 ]
