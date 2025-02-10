@@ -1,6 +1,6 @@
 [
 {
     "pattern": "Referenca na naročilo, na katerega se potrditev naročila navezuje \\(BT-9\\), je obvezen podatek.",
-    "response": "Napaka pomeni, da v XML dokumentu manjka podatek <strong>Referenca na naročilo (BT-9)</strong>. Preverite XML dokument in vnesite manjkajočo referenco."
+    "response": "Napaka pomeni, da v XML dokumentu manjka podatek Referenca na naročilo (BT-9). Preverite XML dokument in vnesite manjkajočo referenco."
 }
 ]
