@@ -16,7 +16,7 @@
     "response": "Napako prejmete zaradi odvečnega segmenta »Šifra poslovne enote« v XML datoteki računa. V kolikor podjetje nima šifre poslovne enote je potrebno omenjen podatek izpustiti."
     },
     {
-        "pattern": "(.*)?An Invoice shall have the Sum of Invoice line net amount \(BT-106\)(.*)?",
+        "pattern": "(.*)?An Invoice shall have the Sum of Invoice line net amount \\(BT-106\\)(.*)?",
         "response": "Napako prejmete saj vam v XML dokumentu računa manjka skupni znesek postavk. BT-106 se navezuje na podatek v e-SLOG 2.0 standardu za eRačun, kjer je skupni znesek postavk obvezen podatek."
     }
 ]
