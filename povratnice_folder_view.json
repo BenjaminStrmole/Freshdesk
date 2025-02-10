@@ -30,5 +30,34 @@
     {
         "pattern": "(.*)?Invoice\\.ID\\.Value: (.*?)(, .*\\.+)?",
         "response": "Napako prejmete, saj so bile v času pošiljanja računa  motnje na eSEF omrežju. Račun se iz tega razloga ni mogel zapisati. Potrebno bi bilo preveriti v kakšnem statusu je račun na eSEF portalu. V primeru, da je v statusu DRAFT, ga lahko tam samo pobrišete in ponovno pošljete. V primeru, da pa je račun v statusu poslan, pa bo potrebno samo posodobiti status v internem programu. Preverite še ali imate v eSEF portalu možnost »Storno« dokumenta, v tem primeru lahko dokument stornirate in račun ponovno pošljete iz vašega programa."
+    },
+    {
+        "pattern": "(.*)?DAVČNA ŠTEVILKA PREJEMNIKA DOKUMENTA JE ZARADI USMERJANJA OBVEZEN PODATEK(.*)?",
+        "response": "Napako prejmete, ker v XML dokumentu manjka davčna številka prejemnika. Preverite, ali je davčna številka ustrezno vpisana v vašem eRačunu in poskusite znova."
+    },
+    {
+        "pattern": "(.*)?Datoteka ni v eSlogu 2\\.0(.*)?",
+        "response": "Napako prejmete, ker datoteka ni v pravilni eSlog 2.0 strukturi. Preverite, ali je XML dokument skladen s standardom eSlog 2.0 in poskusite znova."
+    },
+    {
+        "pattern": "(.*)?Račun s prilogama presega dovoljeno velikost \\d{1,8} KB\\.(.*)?",
+        "response": "Napako prejmete, saj velikost poslanega paketa presega maksimalno dovoljeno mejo. V kolikor pošiljate na UJP omrežje je maksimalna velikost celega paketa 20 MB, v BANKART omrežju je 2 MB, v bizBox omrežju pa je neomejeno."
+    },
+    {
+        "pattern": "(.*)?Datoteka vsebuje napačen format(.*)?",
+        "response": "Napako najverjetneje prejmete, saj imate XML računa v eSlog 1.6, v ovojnici pa imate zapisano, da je XML računa v eSlogu 2.0."
+    },
+    {
+        "pattern": "(.*)?Datoteka XML je prazna(.*)?",
+        "response": "Napako prejmete, saj je XML datoteka računa prazna (velikost 0 KB)."
+    },
+    {
+        "pattern": "(.*)?Datoteke ni mogoče odpreti(.*)?",
+        "response": "Napako prejmete, saj priloge PDF ni mogoče odpreti (velikost 0 KB)."
+    },
+    {
+        "pattern": "(.*)?Datoteke XML in PDF ni mogoče najti!(.*)?",
+        "response": "Napako prejmete, saj je v ovojnici računa zabeleženo, da je v paketu računa priložena tudi PDF priloga ali račun v XML obliki. V paketu, ki je prispel do našega omrežja pa navedenih PDF prilog oziroma XMLjev ni priloženih."
     }
+
 ]
