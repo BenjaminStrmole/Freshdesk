@@ -58,6 +58,29 @@
     {
         "pattern": "(.*)?Datoteke XML in PDF ni mogoče najti!(.*)?",
         "response": "Napako prejmete, saj je v ovojnici računa zabeleženo, da je v paketu računa priložena tudi PDF priloga ali račun v XML obliki. V paketu, ki je prispel do našega omrežja pa navedenih PDF prilog oziroma XMLjev ni priloženih."
+    },
+    {
+        "pattern": "(.*)?Deliver to information shall occur maximum once; Due Date shall occur maximum once(.*)?",
+        "response": "Napako prejmete, saj v XML datoteki računa manjka »Datum zapadlosti plačila«."
+    },
+    {
+        "pattern": "(.*)?Document reference shall occur maximum once(.*)?",
+        "response": "Napako prejmete, saj imate v računu vpisan enak referenčni podatek (pogodba, naročilo ali dobavnica) v glavi računa in na postavkah. Omrežje FINA le tega ne sprejema, v kolikor imate enak podatek, je potrebno izbrisati referenčni podatek na postavki in ga vpisati samo na glavi računa."
+    },
+    {
+        "pattern": "(.*)?Dokument je prevelik!(.*)?",
+        "response": "Napako prejmete, saj velikost poslanega paketa presega maksimalno. V kolikor pošiljate na UJP omrežje je maksimalna velikost celega paketa 20 MB, v BANKART omrežju je 2MB, v bizBox omrežju pa je neomejeno."
+    },
+    {
+        "pattern": "(.*)?Dokument mora sadržavati XML Buyer EndpointID element(.*)?",
+        "response": "Napako prejmete zaradi pomanjkljivega ali manjkajočega IC elementa v XML datoteki računa, ki je obvezen za pošiljanje HR prejemnikom."
+    },
+    {
+        "pattern": "(.*)?SupplierId element SOAP poruke različit od XML Supplier EndpointID elementa(.*)?",
+        "response": "Napako prejmete zaradi pomanjkljivega ali manjkajočega IC elementa v XML datoteki računa, ki je obvezen za pošiljanje HR prejemnikom."
+    },
+    {
+        "pattern": ".*\\[ERROR: Priloga pod zaporedno št\\. (\\d+): Dokument ne ustreza predpisani shemi\\. Dovoljeni dokumenti: (UBL 2\\.1|CEFACT 100\\.D16B|eSlog 2\\.00)!.*\\]",
+        "response": "Dokument ni poslan v ustrezni obliki oz. poslani eSlog 2.0 ni zapisan po predpisani XSD shemi – kontaktiraj ponudnika informacijske rešitve."
     }
-
 ]
