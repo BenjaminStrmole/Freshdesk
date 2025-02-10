@@ -20,7 +20,7 @@
     "response": "Napako prejmete saj vam v XML dokumentu računa manjka skupni znesek postavk. BT-106 se navezuje na podatek v e-SLOG 2.0 standardu za eRačun, kjer je skupni znesek postavk obvezen podatek."
     },
     {
-    "pattern": "(.*)?BIC prejemnika \\[(.*?)\\] ni registriran v Bankart omrežju!(.*)?",
-    "response": "Napako lahko prejmete zaradi več razlogov. Preverite:<br> - Ali imate vpisano pravilno BIC kodo? Pravilno BIC kodo glede na banko prejemnika lahko preverite na naslednji povezavi: <a href='https://www.bsi.si/placila-in-infrastruktura/placilne-storitve-in-elektronski-denar/identifikacijske-oznake-in-kode-bic' target='_blank'>BSI – Kode BIC</a>.<br> - BIC koda mora vsebovati 11 mest. V kolikor ne vsebuje 11 mest, dodajte XXX.<br> - Ali imate označeno, da je prejemnik računa fizična oseba? Označite, da gre za pravno osebo."
+    "pattern": "(.*)?BIC prejemnika (\\[?(.*?)\\]?) ni registriran v Bankart omrežju!(.*)?",
+    "response": "Napako lahko prejmete zaradi več razlogov. Preverite:<br> - Ali imate vpisano pravilno BIC kodo? Pravilno BIC kodo glede na banko prejemnika lahko preverite na naslednji povezavi:<br> <a href='https://www.bsi.si/placila-in-infrastruktura/placilne-storitve-in-elektronski-denar/identifikacijske-oznake-in-kode-bic' target='_blank'>BSI – Kode BIC</a>.<br> - BIC koda mora vsebovati 11 mest. V kolikor ne vsebuje 11 mest, dodajte XXX.<br> - Ali imate označeno, da je prejemnik računa fizična oseba? Označite, da gre za pravno osebo."
     }
 ]
