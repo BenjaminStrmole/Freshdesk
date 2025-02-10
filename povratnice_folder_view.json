@@ -112,7 +112,7 @@
         "response": "Napako prejmete, saj dokumenta ni mogoče usmeriti v prejemnikov predal. Predlagam, da preverite pri prejemniku, ali ima dejansko omogočen prejem na zapisan IBAN."
     },
     {
-        "pattern": "(.*?)?invoice\\.AccountingSupplierParty\\.Party\\.EndpointID\\.schemeID: SchemeID for sender company identifier invlid\\. Allowed values:(.*?)?",
+        "pattern": "(.*?)?invoice\\.AccountingSupplierParty\\.Party\\.EndpointID\\.schemeID: SchemeID for sender company identifier invlid\\. Allowed values:(.*?)",
         "response": "Napako prejmete zaradi pomanjkljivega ali manjkajočega IC elementa v XML datoteki računa, ki je obvezen za pošiljanje HR prejemnikom."
     }
 
