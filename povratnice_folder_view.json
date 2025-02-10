@@ -104,9 +104,10 @@
         "response": "Napako prejmete, saj računa ni bilo mogoče usmeriti zaradi napačne BIC kode prejemnika."
     },
     {
-        "pattern": "(.*?)Ime datoteke, ki je dodana kot priloga \\d+, ne sme vsebovati presledkov in šumnikov\\. Ime lahko vsebuje le male in velike črke, številke in podčrtaje(.*?)",
-        "response": "Napako prejmete, saj imate PDF prilogo poimenovano s »čudnimi« znaki, šumniki ali presledki. PDF priloga k računu je lahko poimenovana le s malimi in velikimi črkami, številkami in podčrtaji."
+    "pattern": "(.*?)Ime datoteke, ki je dodana kot priloga (\\d+), ne sme vsebovati presledkov in šumnikov\\. Ime lahko vsebuje le male in velike črke, številke in podčrtaje!(.*?)",
+    "response": "Napako prejmete, saj imate PDF prilogo poimenovano s »čudnimi« znaki, šumniki ali presledki. PDF priloga k računu je lahko poimenovana le s malimi in velikimi črkami, številkami in podčrtaji."
     }
+
 
 
 
