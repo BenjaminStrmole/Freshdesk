@@ -10,5 +10,5 @@
     {
     "pattern": "¨-99¨ \\[¨.*?`(.*?)` is not valid.*?of element `(.*?)`.*?¨\\]",
     "response": "Napako prejmete zaradi napačnega zapisa datuma `<strong>${1}</strong>` v elementu `<strong>${2}</strong>`. Pravilen zapis datuma je YYYY-MM-DD."
-}
+    }
 ]
