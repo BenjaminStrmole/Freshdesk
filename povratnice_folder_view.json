@@ -8,7 +8,7 @@
         "response": "Napako prejmete zaradi praznega polja <strong>${2}</strong>. Praznih polj po standardu eSlog 2.0 v XML računa ne sme vsebovati. Napaka se nahaja v vrstici ${3} in stolpcu ${4}."
     },
     {
-        "pattern": ".*`(.*?)`.*is not a valid value for `date`.*cvc-type\\.3\\.1\\.3: The value `(.*?)` of element `(.*?)` is not valid.*",
-        "response": "Napako prejmete zaradi napačnega zapisa datuma `<strong>${1}</strong>`. Element: `<strong>${3}</strong>`. Preverite pravilnost zapisa datuma. Pravilen format je YYYY-MM-DD."
+        "pattern": "¨-99¨ \\[¨(.*?) `(.+?)` is not a valid value for `(.*?)`.*cvc-type\\.3\\.1\\.3: The value `(.+?)` of element `(.*?)`.*¨\\]",
+        "response": "Napako prejmete zaradi napačnega zapisa `<strong>${2}</strong>` v elementu `<strong>${5}</strong>` za atribut `<strong>${3}</strong>`. Preverite pravilnost zapisa. Pravilen format je YYYY-MM-DD."
     }
 ]
