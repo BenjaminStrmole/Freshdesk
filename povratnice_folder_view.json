@@ -115,4 +115,5 @@
         "pattern": "(.*?)invoice\\.AccountingSupplierParty\\.Party\\.EndpointID\\.schemeID: SchemeID for sender company identifier invlid\\. Allowed values: (.*?)",
         "response": "Napako prejmete zaradi pomanjkljivega ali manjkajočega IC elementa v XML datoteki računa, ki je obvezen za pošiljanje HR prejemnikom."
     }
+
 ]
