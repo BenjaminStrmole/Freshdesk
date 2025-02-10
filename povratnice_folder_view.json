@@ -94,6 +94,11 @@
     {
         "pattern": "(.*?)Transakcije \\(recipient_account=`(.*?)`, XXX_EXT_ORDER\\.DOC_ID=`(.*?)`, XXX_EXT_ORDER\\.EXTERNAL_ID=`(.*?)`\\) ni mogoče usmeriti\\.",
         "response": "Napako prejmete s strani bančnega omrežja, saj dokumenta ni mogoče usmeriti v prejemnikov predal. Predlagam, da preverite pri prejemniku ali ima dejansko omogočen prejem na zapisan IBAN."
+    },
+    {
+        "pattern": "¨-99¨ \\[¨HALICL0033: (.*?)`(.*?)`\\. Recipient agent BIC `(.*?)` for transaction \\(sequence number=`(.*?)`, doc_id=`(.*?)`\\) does not match any of the active participants\\.¨\\]",
+        "response": "Napako prejmete s strani bančnega omrežja, saj dokumenta ni mogoče v prejemnikov predal zaradi napačne BIC kode."
     }
+
 
 ]
