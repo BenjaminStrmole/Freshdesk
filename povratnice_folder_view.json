@@ -86,7 +86,13 @@
     {
         "pattern": "(.*?)Dokument ne zadovoljava XSD schemu: (.*?) for (.*?)",
         "response": "Napako prejmete, saj kreirate račun v Excelu, kateri že vrsto let ni več v uporabi, se ne posodablja, niti zanj ne nudimo podpore. Kot substitut smo razvili portalno rešitev: <a href='https://support.bizbox.eu/sl/support/solutions/202000104436' target='_blank' style='color: blue; text-decoration: underline;'>Pošiljanje eRačuna</a>."
+    },
+    {
+        "pattern": "(.*?)Dokument vsebuje dvojni zapis znotraj xml datoteke(.*?)",
+        "response": "Napako prejmete, saj imate v XML datoteki računa dvakrat enak zapis vsebine računa."
+    },
+    {
+        "pattern": "-99 \\[\\\"HALICL0016: Transakcije \\(recipient_account=`(.*?)`, XXX_EXT_ORDER\\.DOC_ID=`(.*?)`, XXX_EXT_ORDER\\.EXTERNAL_ID=`(.*?)`\\) ni mogoče usmeriti\\.\\\"\\]",
+        "response": "Napako prejmete s strani bančnega omrežja, saj dokumenta ni mogoče usmeriti v prejemnikov predal. Predlagam, da preverite pri prejemniku ali ima dejansko omogočen prejem na zapisan IBAN."
     }
-
-
 ]
