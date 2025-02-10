@@ -82,5 +82,10 @@
     {
         "pattern": ".*\\[ERROR: Priloga pod zaporedno št\\. (\\d+): Dokument ne ustreza predpisani shemi\\. Dovoljeni dokumenti: (UBL 2\\.1|CEFACT 100\\.D16B|eSlog 2\\.00)!.*\\]",
         "response": "Dokument ni poslan v ustrezni obliki oz. poslani eSlog 2.0 ni zapisan po predpisani XSD shemi – kontaktiraj ponudnika informacijske rešitve."
+    },
+    {
+        "pattern": ".*Dokument ne zadovoljava XSD schemu: cvc-datatype-valid\\.1\\.2\\.1: `(.*?)` is not a valid value for `decimal`.*",
+        "response": "Napako prejmete, saj kreirate račun v Excelu, za popust ste izbrali decimalno številko, kar Excel ne zna zapisati. Popravili smo kodo v Excelu, kreirali xml in vejico zamenjali s piko. Pošiljanje eRačuna preko orodja Excel je zastarela oblika, katere se že več let ne posodablja. V te namene smo razvili portalno rešitev, ki si jo lahko ogledate na <a href='https://support.bizbox.eu/sl/support/solutions/202000104436' target='_blank' style='color:blue; font-weight:bold;'>Pošiljanje eRačuna</a>."
     }
+
 ]
