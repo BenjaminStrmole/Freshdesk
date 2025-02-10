@@ -1,58 +1,6 @@
 [
-    {
-        "pattern": "-255: ORDRSPBR9: \\[BR-9\\] Referenca na naročilo, na katerega se potrditev naročila navezuje \\(BT-9\\), je obvezen podatek.",
-        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka podatek »Datum zapadlosti računa«."
-    },
-    {
-        "pattern": "cvc-type.3.1.3: The value '.*?' of element 'D_1154' is not valid.",
-        "response": "Napako prejmete zaradi praznega polja D_1154. Praznih polj po standardu eSlog 2.0 v XML računa ne sme vsebovati."
-    },
-    {
-        "pattern": "-99.*?cvc-datatype-valid.1.2.1: `.*?` is not a valid value for `date`.*?",
-        "response": "Napako prejmete zaradi napačnega zapisa datuma v XML datoteki. Pravilen zapis datuma je YYYY-MM-DD."
-    },
-    {
-        "pattern": "AdditionalBuyerID element SOAP poruke.*?",
-        "response": "Napako prejmete zaradi odvečnega segmenta »Šifra poslovne enote« v XML datoteki računa. V kolikor podjetje nima šifre poslovne enote je potrebno omenjen podatek izpustiti."
-    },
-    {
-        "pattern": "An Invoice shall have the Sum of Invoice line net amount \\(BT-106\\)",
-        "response": "Napako prejmete saj vam v XML dokumentu računa manjka skupni znesek postavk. BT-106 se navezuje na podatek v e-SLOG 2.0 standardu za eRačun, kjer je skupni znesek postavk obvezen podatek."
-    },
-    {
-        "pattern": "-99.*?BIC prejemnika \\[.*?\\] ni registriran v Bankart omrežju!",
-        "response": "Napako lahko prejmete zaradi več razlogov. Preverite pravilnost BIC kode na spletni strani: https://www.bsi.si/placila-in-infrastruktura/placilne-storitve-in-elektronski-denar/identifikacijske-oznake-in-kode-bic"
-    },
-    {
-        "pattern": "BT-24: TS vhodni ORDRSP: Supplier GLN is mandatory.",
-        "response": "Napako prejmete, saj v XML dokumentu računa manjka podatek »GLN številka pošiljatelja«."
-    },
-    {
-        "pattern": "-99.*?Invoice.ID.Value: Invoice InvoiceInformation.InvoiceNumber contains duplicates",
-        "response": "Napako prejmete, saj so bile v času pošiljanja računa motnje na eSEF omrežju. Preverite status računa na eSEF portalu."
-    },
-    {
-        "pattern": "DAVČNA ŠTEVILKA PREJEMNIKA DOKUMENTA JE ZARADI USMERJANJA OBVEZEN PODATEK",
-        "response": "Napako prejmete, saj vam v XML dokumentu manjka podatek »Davčna številka prejemnika«."
-    },
-    {
-        "pattern": "Datoteka ni v eSlogu 2.0!",
-        "response": "Napako prejmete, saj imate XML računa v eSlog 1.6, v ovojnici pa imate zapisano, da je XML računa v eSlogu 2.0."
-    },
-    {
-        "pattern": "-99.*?ERROR: ERačun s prilogama presega dovoljeno velikost .*?",
-        "response": "Napako prejmete, saj velikost poslanega paketa presega maksimalno dovoljeno velikost v omrežju."
-    },
-    {
-        "pattern": "-99.*?Dokument mora sadržavati XML Buyer EndpointID element",
-        "response": "Napako prejmete zaradi pomanjkljivega ali manjkajočega IC elementa v XML datoteki računa, ki je obvezen za pošiljanje HR prejemnikom."
-    },
-    {
-        "pattern": "-99.*?HALICL0016: Transakcije .*? ni mogoče usmeriti.",
-        "response": "Napako prejmete s strani bančnega omrežja, saj dokumenta ni mogoče usmeriti v prejemnikov predal. Preverite, ali je IBAN pravilno vnesen."
-    },
-    {
-        "pattern": "-99.*?IZDAJATELJA ZA RAČUN .*?, BIC BANKE .*? IN DAVČNO ŠTEVILKO .*? NI MOGOČE NAJTI!",
-        "response": "Napako prejmete, saj računa ni bilo mogoče usmeriti zaradi napačne BIC kode prejemnika."
-    }
+{
+    "pattern": "Referenca na naročilo, na katerega se potrditev naročila navezuje \\(BT-9\\), je obvezen podatek.",
+    "response": "Napaka pomeni, da v XML dokumentu manjka podatek <strong>Referenca na naročilo (BT-9)</strong>. Preverite XML dokument in vnesite manjkajočo referenco."
+}
 ]
