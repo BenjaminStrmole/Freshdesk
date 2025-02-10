@@ -12,19 +12,23 @@
         "response": "Napaka pomeni, da je bila napačno določena vrednost datuma `{1}`. Element `{3}` vsebuje vrednost `{2}`, ki ni ustrezna. Preverite, da je datum v obliki YYYY-MM-DD in da so vsi elementi pravilno nastavljeni."
     },
     {
-    "pattern": "(.*)?AdditionalBuyerID element SOAP poruke se ne nalazi kao vrijednost nekog od XML PartyIdentification Buyer elemenata(.*)?",
-    "response": "Napako prejmete zaradi odvečnega segmenta »Šifra poslovne enote« v XML datoteki računa. V kolikor podjetje nima šifre poslovne enote je potrebno omenjen podatek izpustiti."
+        "pattern": "(.*)?AdditionalBuyerID element SOAP poruke se ne nalazi kao vrijednost nekog od XML PartyIdentification Buyer elemenata(.*)?",
+        "response": "Napako prejmete zaradi odvečnega segmenta »Šifra poslovne enote« v XML datoteki računa. V kolikor podjetje nima šifre poslovne enote je potrebno omenjen podatek izpustiti."
     },
     {
-    "pattern": "(.*)?An Invoice shall have the Sum of Invoice line net amount \\(BT-106\\)(.*)?",
-    "response": "Napako prejmete saj vam v XML dokumentu računa manjka skupni znesek postavk. BT-106 se navezuje na podatek v e-SLOG 2.0 standardu za eRačun, kjer je skupni znesek postavk obvezen podatek."
+        "pattern": "(.*)?An Invoice shall have the Sum of Invoice line net amount \\(BT-106\\)(.*)?",
+        "response": "Napako prejmete saj vam v XML dokumentu računa manjka skupni znesek postavk. BT-106 se navezuje na podatek v e-SLOG 2.0 standardu za eRačun, kjer je skupni znesek postavk obvezen podatek."
     },
     {
-    "pattern": "(.*)?BIC prejemnika (\\[?(.*?)\\]?) ni registriran v Bankart omrežju!(.*)?",
-    "response": "Napako lahko prejmete zaradi več razlogov. Preverite:<br> - Ali imate vpisano pravilno BIC kodo? Pravilno BIC kodo glede na banko prejemnika lahko preverite na naslednji povezavi:<br> <a href='https://www.bsi.si/placila-in-infrastruktura/placilne-storitve-in-elektronski-denar/identifikacijske-oznake-in-kode-bic' target='_blank'>BSI – Kode BIC</a>.<br> - BIC koda mora vsebovati 11 mest. V kolikor ne vsebuje 11 mest, dodajte XXX.<br> - Ali imate označeno, da je prejemnik računa fizična oseba? Označite, da gre za pravno osebo."
+        "pattern": "(.*)?BIC prejemnika (\\[?(.*?)\\]?) ni registriran v Bankart omrežju!(.*)?",
+        "response": "Napako lahko prejmete zaradi več razlogov. Preverite:<br> - Ali imate vpisano pravilno BIC kodo? Pravilno BIC kodo glede na banko prejemnika lahko preverite na naslednji povezavi:<br> <a href='https://www.bsi.si/placila-in-infrastruktura/placilne-storitve-in-elektronski-denar/identifikacijske-oznake-in-kode-bic' target='_blank'>BSI – Kode BIC</a>.<br> - BIC koda mora vsebovati 11 mest. V kolikor ne vsebuje 11 mest, dodajte XXX.<br> - Ali imate označeno, da je prejemnik računa fizična oseba? Označite, da gre za pravno osebo."
     },
     {
-    "pattern": "(.*)?Supplier GLN is mandatory(\\.|\\s)?(.*)?",
-    "response": "Napako prejmete, saj v XML dokumentu računa manjka podatek »GLN številka pošiljatelja«."
+        "pattern": "(.*)?Supplier GLN is mandatory(\\.|\\s)?(.*)?",
+        "response": "Napako prejmete, saj v XML dokumentu računa manjka podatek »GLN številka pošiljatelja«."
+    },
+    {
+        "pattern": "(.*)?Invoice\\.ID\\.Value: (.*?)(, .*\\.+)?",
+        "response": "Napako prejmete, saj so bile v času pošiljanja računa  motnje na eSEF omrežju. Račun se iz tega razloga ni mogel zapisati. Potrebno bi bilo preveriti v kakšnem statusu je račun na eSEF portalu. V primeru, da je v statusu DRAFT, ga lahko tam samo pobrišete in ponovno pošljete. V primeru, da pa je račun v statusu poslan, pa bo potrebno samo posodobiti status v internem programu. Preverite še ali imate v eSEF portalu možnost »Storno« dokumenta, v tem primeru lahko dokument stornirate in račun ponovno pošljete iz vašega programa."
     }
 ]
