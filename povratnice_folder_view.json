@@ -273,7 +273,7 @@
     },
     {
     "pattern": ".*?\\[ERROR: Atribut (Attachment No\\. \\d+) je obvezen\\.\\].*?",
-    "response": "Napako prejmete, saj priloga številka <strong>$1</strong>, ki je navedena v ovojnici, ni priložena v paketu posredovanega dokumenta."
+    "response": "Napako prejmete, saj priloga številka <strong>1</strong>, ki je navedena v ovojnici, ni priložena v paketu posredovanega dokumenta."
     },
     {
     "pattern": ".*?\\[ERROR: Banka izdajatelja RVUALT2VXXX ni v SEPA območju!\\].*?",
