@@ -198,6 +198,38 @@
     {
         "pattern": ".*?Not implemented logic for 385 document type.*?",
         "response": "Napako prejmete, saj v ovojnici računa manjkata podatka &lt;package&gt; &lt;/package&gt; in &lt;timestamp&gt; &lt;/timestamp&gt;."
+    },
+    {
+        "pattern": ".*?PDV identifikacijski broj Prodavatelja \\(BT-31\\), PDV identifikacijski broj poreznog zastupnika Prodavatelja \\(BT-63\\) i PDV identifikacijski broj Kupca \\(BT-48\\) (.*?) Raspodjela PDV-a \\(BG-23\\) sa šifrom kategorije PDV-a (.*?)",
+        "response": "Napako prejmete, saj imate v XML dokumentu računa označeno davčno stopnjo 0%, nimate pa vpisanega davčnega besedila. V kolikor je DDV enak 0% je za uspešno pošiljanje računa davčno besedilo obvezen podatek."
+    },
+    {
+        "pattern": ".*?Parameter pd_purpose \\(koda namena\\) je obvezen podatek!.*?",
+        "response": "Napako prejmete zaradi manjkajočega podatka »Koda namena« v XML datoteki računa."
+    },
+    {
+        "pattern": ".*?Payee name shall occur maximum once, if the Payee is different from the Seller(; Payee identifier shall occur maximum once, if the Payee is different from the Seller; Payee legal registration identifier shall occur maximum once, if the Payee is different from the Seller)?.*?",
+        "response": "Napako prejmete, saj vam v XML dokumenti manjkajo določeni segmenti, ki so uspešni za pošiljanje v prejemnikovo omrežje."
+    },
+    {
+        "pattern": ".*?Pdf priloge ni mogoče najti!.*?",
+        "response": "Napako prejmete, saj je v ovojnici računa zabeleženo, da je v paketu računa priložena tudi PDF priloga. V paketu, ki je prispel do našega omrežja pa navedenih PDF prilog ni priloženih."
+    },
+     {
+    "pattern": ".*?Pri dostavi v bančno omrežje je parameter ri_account_id \\(IBAN prejemnika\\) obvezen podatek.*?",
+    "response": "Napako prejmete, saj pri dostavi v bančno omrežje manjka obvezen podatek IBAN prejemnika."
+    },
+    {
+    "pattern": ".*?Pri dostavi v bančno omrežje je parameter ri_receiver_agent,ri_account_id \\(BIC,IBAN prejemnika\\) obvezen podatek.*?",
+    "response": "Napako prejmete, saj v XML dokumentu računa manjkajo bančni podatki prejemnika (BIC in IBAN)."
+    },
+    {
+    "pattern": ".*?Priloga z enakom imenom \\((.*?)\\) že obstaja na tem e-računu.*?",
+    "response": "Napako prejmete, saj imate v paketu računa dve enaki prilogi PDF."
+    },
+    {
+    "pattern": ".*?Priloge (.*?)\\.pdf ni mogoce najti.*?",
+    "response": "Napako prejmete, saj je v ovojnici računa zabeleženo, da je v paketu računa priložena tudi PDF priloga. V paketu, ki je prispel do našega omrežja pa navedenih PDF prilog ni priloženih."
     }
 
 ]
