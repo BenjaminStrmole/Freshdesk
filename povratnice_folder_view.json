@@ -260,32 +260,32 @@
         "response": "Napako prejmete, saj vam v XML dokumentu računa manjka podatek »Razlog oprostitve davka«, ki je obvezen v kolikor je davčna stopnja enaka 0%."
     },
     {
-    "pattern": ".*?The given key `(.*?)` was not present in the dictionary.*?",
-    "response": "Napako prejmete, saj imate k računu dodano prilogo, ki ni v PDF formatu."
+        "pattern": ".*?The given key `(.*?)` was not present in the dictionary.*?",
+        "response": "Napako prejmete, saj imate k računu dodano prilogo, ki ni v PDF formatu."
     },
     {
-    "pattern": ".*?The string `(.*?)` is not a valid Decimal value.*?",
-    "response": "Omenjena napaka se pojavi pri pretvorbi v UBL in se vrednost ne zapiše v polje: &lt;cbc:taxableamount currencyid=RSD&gt;&lt;/cbc:taxableamount&gt;."
+        "pattern": ".*?The string `(.*?)` is not a valid Decimal value.*?",
+        "response": "Omenjena napaka se pojavi pri pretvorbi v UBL in se vrednost ne zapiše v polje: &lt;cbc:taxableamount currencyid=RSD&gt;&lt;/cbc:taxableamount&gt;."
     },
     {
-    "pattern": ".*?\\[ERROR: Atribut <(.*?)> je obvezen\\.\\].*?",
-    "response": "Napako prejmete, saj priloga številka <strong>{1}</strong>, ki je navedena v ovojnici, ni priložena v paketu posredovanega dokumenta."
+        "pattern": ".*?\\[ERROR: Atribut <(.*?)> je obvezen\\.\\].*?",
+        "response": "Napako prejmete, saj priloga številka <strong>{1}</strong>, ki je navedena v ovojnici, ni priložena v paketu posredovanega dokumenta."
     },
     {
-    "pattern": ".*?\\[ERROR: Atribut (Attachment No\\. \\d+) je obvezen\\.\\].*?",
-    "response": "Napako prejmete, saj priloga številka <strong>1</strong>, ki je navedena v ovojnici, ni priložena v paketu posredovanega dokumenta."
+        "pattern": ".*?\\[ERROR: Atribut (Attachment No\\. \\d+) je obvezen\\.\\].*?",
+        "response": "Napako prejmete, saj priloga številka <strong>1</strong>, ki je navedena v ovojnici, ni priložena v paketu posredovanega dokumenta."
     },
     {
-    "pattern": ".*?\\[ERROR: Banka izdajatelja RVUALT2VXXX ni v SEPA območju!\\].*?",
-    "response": "Napako prejmete, saj ste pokušali poslati prejemniku v spletno banko <strong>Revolut</strong>, katera še ni v omrežju SEPA."
+        "pattern": ".*?\\[ERROR: Banka izdajatelja RVUALT2VXXX ni v SEPA območju!\\].*?",
+        "response": "Napako prejmete, saj ste pokušali poslati prejemniku v spletno banko <strong>Revolut</strong>, katera še ni v omrežju SEPA."
     },
     {
-    "pattern": ".*?\\[ERROR: Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: (.*?), tip vozlišča: (.*?), opis: (.*?)\\)\\].*?",
-    "response": "Napako prejmete, saj v XML dokumentu računa manjka transakcijski račun (TRR) pošiljatelja. Napaka se nahaja v vrstici <strong>${1}</strong> in stolpcu <strong>${2}</strong>. Podrobnosti: <strong>Ime vozlišča:</strong> ${3}, <strong>Tip vozlišča:</strong> ${4}, <strong>Opis:</strong> ${5}."
+        "pattern": ".*?\\[ERROR: Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: (.*?), tip vozlišča: (.*?), opis: (.*?)\\)\\].*?",
+        "response": "Napako prejmete, saj v XML dokumentu računa manjka transakcijski račun (TRR) pošiljatelja. Napaka se nahaja v vrstici {1} in stolpcu {2}. Podrobnosti: Ime vozlišča: {3}, Tip vozlišča: {4}, Opis: {5}."
     },
     {
-    "pattern": ".*?ERROR: Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: (.*?), tip vozlišča: (.*?), opis: (.*?)\\).*?",
-    "response": "Napako prejmete, saj v XML dokumentu računa manjka BIC koda pošiljatelja. Napaka se nahaja v vrstici <strong>${1}</strong> in stolpcu <strong>${2}</strong>. Podrobnosti: <strong>Ime vozlišča:</strong> ${3}, <strong>Tip vozlišča:</strong> ${4}, <strong>Opis:</strong> ${5}."
+        "pattern": ".*?ERROR: Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: (.*?), tip vozlišča: (.*?), opis: (.*?)\\).*?",
+        "response": "Napako prejmete, saj v XML dokumentu računa manjka BIC koda pošiljatelja. Napaka se nahaja v vrstici {1} in stolpcu {2}. Podrobnosti: Ime vozlišča: {3}, Tip vozlišča: {4}, Opis: {5}."
     }
 ]
 
