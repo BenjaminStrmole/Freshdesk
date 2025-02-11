@@ -136,8 +136,9 @@
         "response": "Napako prejmete, saj v XML dokumentu računa manjkajo bančni podatki prejemnika (BIC in IBAN)."
     },
     {
-        "pattern": ".*?Napako prejmete, saj je v ovojnici računa zabeleženo, da je v paketu računa priložena tudi PDF priloga.*?",
-        "response": "Napako prejmete, saj v ovojnici računa manjkajo obvezne PDF priloge. Preverite, ali so pravilno dodane in ponovno pošljite paket."
+        "pattern": ".*?Manjkajoča priloga!.*?",
+        "response": "Napako prejmete, saj je v ovojnici računa zabeleženo, da je v paketu računa priložena tudi PDF priloga. V paketu, ki je prispel do našega omrežja, pa navedenih PDF prilog ni priloženih."
     }
+
 ]
 
