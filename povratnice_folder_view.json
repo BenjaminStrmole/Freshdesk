@@ -232,32 +232,56 @@
         "response": "Napako prejmete, saj je v ovojnici računa zabeleženo, da je v paketu računa priložena tudi PDF priloga. V paketu, ki je prispel do našega omrežja pa navedenih PDF prilog ni priloženih."
     },
     {
-    "pattern": ".*?Račun koji sadrži stavku računa \\(BG-25\\) gdje je šifra kategorije PDV-a obračunate stavke \\(BT-151\\) \"Exempt from VAT\".*?",
-    "response": "Napako prejmete, saj imate v XML dokumentu računa označeno davčno stopnjo 0%, nimate pa vpisanega davčnega besedila. V kolikor je DDV enak 0% je za uspešno pošiljanje računa davčno besedilo obvezen podatek."
+        "pattern": ".*?Račun koji sadrži stavku računa \\(BG-25\\) gdje je šifra kategorije PDV-a obračunate stavke \\(BT-151\\) \"Exempt from VAT\".*?",
+        "response": "Napako prejmete, saj imate v XML dokumentu računa označeno davčno stopnjo 0%, nimate pa vpisanega davčnega besedila. V kolikor je DDV enak 0% je za uspešno pošiljanje računa davčno besedilo obvezen podatek."
     },
     {
-    "pattern": ".*?Račun ni podpisan\\. Podpis je obvezen.*?",
-    "response": "Napako prejmete, saj pošiljate XML datoteko računa v eSlogu 1.6, kjer je podpis dokumenta obvezen."
+        "pattern": ".*?Račun ni podpisan\\. Podpis je obvezen.*?",
+        "response": "Napako prejmete, saj pošiljate XML datoteko računa v eSlogu 1.6, kjer je podpis dokumenta obvezen."
     },
     {
-    "pattern": ".*?SupplierID element SOAP poruke različit od XML Supplier PartyIdentification elementa.*?",
-    "response": "Napako prejmete zaradi pomanjkljivega ali manjkajočega IC elementa v XML datoteki računa, ki je obvezen za pošiljanje HR prejemnikom."
+        "pattern": ".*?SupplierID element SOAP poruke različit od XML Supplier PartyIdentification elementa.*?",
+        "response": "Napako prejmete zaradi pomanjkljivega ali manjkajočega IC elementa v XML datoteki računa, ki je obvezen za pošiljanje HR prejemnikom."
     },
     {
-    "pattern": ".*?Svaka stavka računa \\(BG-25\\) mora sadržavati neto \\(jediničnu\\) cijenu artikla \\(BT-146\\); Neto \\(jedinična\\) cijena artikla \\(BT-146\\) neće biti negativna.*?",
-    "response": "Račun ne sme vsebovati negativnih predznakov. V primeru, da želite kreirati račun negativne vrednosti je potrebno stranki poslati dobropis (ta pa mora zaradi standarda eSlog2.0 vsebovati pozitivne predznake)."
+        "pattern": ".*?Svaka stavka računa \\(BG-25\\) mora sadržavati neto \\(jediničnu\\) cijenu artikla \\(BT-146\\); Neto \\(jedinična\\) cijena artikla \\(BT-146\\) neće biti negativna.*?",
+        "response": "Račun ne sme vsebovati negativnih predznakov. V primeru, da želite kreirati račun negativne vrednosti je potrebno stranki poslati dobropis (ta pa mora zaradi standarda eSlog2.0 vsebovati pozitivne predznake)."
     },
     {
-    "pattern": ".*?Svojstvo pretinca primatelja nije ispravno.*?",
-    "response": "Napako prejmete, saj v XML dokumentu računa ni zavedene šifre poslovne enote prejemnika oziroma lokacije."
+        "pattern": ".*?Svojstvo pretinca primatelja nije ispravno.*?",
+        "response": "Napako prejmete, saj v XML dokumentu računa ni zavedene šifre poslovne enote prejemnika oziroma lokacije."
     },
     {
-    "pattern": ".*?TaxTotal\\.TaxSubtotal\\.TaxCategory\\.Percent: For a tax exemption reason \"Exempt From VAT\" the percent of taxable amount \\d+ is greater than 0.*?",
-    "response": "Napako prejmete, saj ste v XML datoteki računa izbrali davčno stopnjo »S-standardna stopnja« in 0% DDV. V kolikor želite imeti DDV enak 0% je potrebno izbrati »E – oproščene transakcije s pravico do odbitka DDV«."
+        "pattern": ".*?TaxTotal\\.TaxSubtotal\\.TaxCategory\\.Percent: For a tax exemption reason \"Exempt From VAT\" the percent of taxable amount \\d+ is greater than 0.*?",
+        "response": "Napako prejmete, saj ste v XML datoteki računa izbrali davčno stopnjo »S-standardna stopnja« in 0% DDV. V kolikor želite imeti DDV enak 0% je potrebno izbrati »E – oproščene transakcije s pravico do odbitka DDV«."
     },
     {
-    "pattern": ".*?TaxTotal\\.TaxSubtotal\\.TaxCategory\\.TaxExemptionReasonCode: Tax exemption reason key is not defined.*?",
-    "response": "Napako prejmete, saj vam v XML dokumentu računa manjka podatek »Razlog oprostitve davka«, ki je obvezen v kolikor je davčna stopnja enaka 0%."
-    }   
+        "pattern": ".*?TaxTotal\\.TaxSubtotal\\.TaxCategory\\.TaxExemptionReasonCode: Tax exemption reason key is not defined.*?",
+        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka podatek »Razlog oprostitve davka«, ki je obvezen v kolikor je davčna stopnja enaka 0%."
+    },
+    {
+    "pattern": ".*?The given key `(.*?)` was not present in the dictionary.*?",
+    "response": "Napako prejmete, saj imate k računu dodano prilogo, ki ni v PDF formatu."
+    },
+    {
+    "pattern": ".*?The string `(.*?)` is not a valid Decimal value.*?",
+    "response": "Omenjena napaka se pojavi pri pretvorbi v UBL in se vrednost ne zapiše v polje: &lt;cbc:taxableamount currencyid=RSD&gt;&lt;/cbc:taxableamount&gt;."
+    },
+    {
+    "pattern": ".*?\\[ERROR: Atribut &lt;(.*?)&gt; je obvezen\\.\\].*?",
+    "response": "Napako prejmete, saj priloga številka <strong>${1}</strong>, ki je navedena v ovojnici, ni priložena v paketu posredovanega dokumenta."
+    },
+    {
+    "pattern": ".*?\\[ERROR: Banka izdajatelja RVUALT2VXXX ni v SEPA območju!\\].*?",
+    "response": "Napako prejmete, saj ste pokušali poslati prejemniku v spletno banko <strong>${1}</strong>, katera še ni v omrežju SEPA."
+    },
+    {
+    "pattern": ".*?\\[ERROR: Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: (.*?), tip vozlišča: (.*?), opis: (.*?)\\)\\].*?",
+    "response": "Napako prejmete, saj v XML dokumentu računa manjka transakcijski račun (TRR) pošiljatelja. Napaka se nahaja v vrstici <strong>${1}</strong> in stolpcu <strong>${2}</strong>. Podrobnosti: <strong>Ime vozlišča:</strong> ${3}, <strong>Tip vozlišča:</strong> ${4}, <strong>Opis:</strong> ${5}."
+    },
+    {
+    "pattern": ".*?ERROR: Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: (.*?), tip vozlišča: (.*?), opis: (.*?)\\).*?",
+    "response": "Napako prejmete, saj v XML dokumentu računa manjka BIC koda pošiljatelja. Napaka se nahaja v vrstici <strong>${1}</strong> in stolpcu <strong>${2}</strong>. Podrobnosti: <strong>Ime vozlišča:</strong> ${3}, <strong>Tip vozlišča:</strong> ${4}, <strong>Opis:</strong> ${5}."
+    }
 ]
 
