@@ -148,16 +148,20 @@
         "response": "Napako prejmete, saj ste v XML datoteki računa izbrali davčno stopnjo »S-standardna stopnja« in 0% DDV. V kolikor želite imeti DDV enak 0% je potrebno izbrati »E – oproščene transakcije s pravico do odbitka DDV«. V nasprotnem primeru pa izberite davčno stopnjo »S-standardna stopnja« in 22% DDV."
     },
     {
-    "pattern": ".*?(Napačen|Napacen) zapis formata v ovojnici!.*?",
-    "response": "Napako prejmete, saj imate v ovojnici napačen zapis formata. Obrnite se na ponudnika programske opreme."
+        "pattern": ".*?(Napačen|Napacen) zapis formata v ovojnici!.*?",
+        "response": "Napako prejmete, saj imate v ovojnici napačen zapis formata. Obrnite se na ponudnika programske opreme."
     },
     {
-    "pattern": ".*?cvc-datatype-valid\\.1\\.2\\.1: '(.*?)' is not a valid value for 'date'.*?",
-    "response": "Napako prejmete zaradi napačnega zapisa datuma v XML datoteki. Pravilen zapis datuma je YYYY-MM-DD (Y-leto, M-mesec, D-dan)."
+        "pattern": ".*?cvc-datatype-valid\\.1\\.2\\.1: '(.*?)' is not a valid value for 'date'.*?",
+        "response": "Napako prejmete zaradi napačnega zapisa datuma v XML datoteki. Pravilen zapis datuma je YYYY-MM-DD (Y-leto, M-mesec, D-dan)."
     },
     {
-    "pattern": ".*?Napaka pri validaciji: Velikost prilog je prevelika: (\\d+). Največja dovoljena velikost je (\\d+).*?",
-    "response": "Napako prejmete, saj je velikost prilog <strong>${1}</strong> KB, kar presega največjo dovoljeno velikost <strong>${2}</strong> KB. Poskusite zmanjšati velikost prilog ali jih razdeliti na več delov."
+        "pattern": ".*?Napaka pri validaciji: Velikost prilog je prevelika: (\\d+). Največja dovoljena velikost je (\\d+).*?",
+        "response": "Napako prejmete, saj je velikost prilog <strong>${1}</strong> KB, kar presega največjo dovoljeno velikost <strong>${2}</strong> KB. Poskusite zmanjšati velikost prilog ali jih razdeliti na več delov."
+    },
+    {
+        "pattern": ".*?Napaka: Ovojnica e-računa lahko vsebuje največ tri priponke.*?",
+        "response": "Napako prejmete, saj ima prejemnik računa urejen prejem v <strong>BANČNO omrežje</strong>, katero ima omejitev glede maksimalnega števila prilog. V BANČNO omrežje lahko pošljete največ <strong>tri priloge</strong> v paketu računa."
     }
 ]
 
