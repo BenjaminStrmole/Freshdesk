@@ -162,6 +162,20 @@
     {
         "pattern": ".*?Napaka: Ovojnica e-računa lahko vsebuje največ tri priponke.*?",
         "response": "Napako prejmete, saj ima prejemnik računa urejen prejem v <strong>BANČNO omrežje</strong>, katero ima omejitev glede maksimalnega števila prilog. V BANČNO omrežje lahko pošljete največ <strong>tri priloge</strong> v paketu računa."
+    },
+    {
+        "pattern": ".*?Napaka: Preveri element: envelope\\.payment_data\\.amount = (-?[0-9]+\\.?[0-9]*) ni v zalogi vrednosti \\[0-9]{1,13}(\\.\\[0-9]{0,2})?.*?",
+        "response": "Napako prejmete, saj ste želeli poslati dobropis, v XML dokumentu računa pa je označeno, da gre za račun."
+    },
+    {
+        "pattern": ".*?Napačen format IBAN!.*?",
+        "response": "Napako prejmete, saj imate napačno zapisan IBAN. IBAN se mora začeti s SI56 in nadaljevati s številkami, brez presledkov. Preverite zapis IBAN in poskusite ponovno."
+    },
+    {
+    "pattern": ".*?Napačen zapis \"Type\" v ovojnici!.*?",
+    "response": "Napako prejmete, saj imate v ovojnici računa napačno zapisan »Type« dokumenta. Pravilen zapis »Type« v ovojnici je INVOIC."
     }
+
+
 ]
 
