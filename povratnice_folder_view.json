@@ -172,10 +172,33 @@
         "response": "Napako prejmete, saj imate napačno zapisan IBAN. IBAN se mora začeti s SI56 in nadaljevati s številkami, brez presledkov. Preverite zapis IBAN in poskusite ponovno."
     },
     {
-    "pattern": ".*?Napačen zapis \"Type\" v ovojnici!.*?",
-    "response": "Napako prejmete, saj imate v ovojnici računa napačno zapisan »Type« dokumenta. Pravilen zapis »Type« v ovojnici je INVOIC."
+        "pattern": ".*?Napačen zapis \"Type\" v ovojnici!.*?",
+        "response": "Napako prejmete, saj imate v ovojnici računa napačno zapisan »Type« dokumenta. Pravilen zapis »Type« v ovojnici je INVOIC."
+    },
+    {
+    "pattern": ".*?Napačen zapis formata datuma.*?",
+    "response": "Napako prejmete zaradi napačnega zapisa datuma v XML datoteki. Pravilen zapis datuma je YYYY-MM-DD."
+    },
+    {
+        "pattern": ".*?Napačen zapis formata v ovojnici!.*?",
+        "response": "Napako prejmete, saj imate v ovojnici računa napačno zapisan »Format« dokumenta."
+    },
+    {
+        "pattern": ".*?Ne postoji pretinac za naručitelja.*?",
+        "response": "Napako prejmete, saj imate v vpisano šifro poslovne enote oz. lokacije, ki onemogoča pošiljanje računa, saj prejemnik nima določene šifre poslovne enote."
+    },
+    {
+        "pattern": ".*?Neispravna vrijednost podatka `AccountingCustomerParty/Party/PartyLegalEntity/CompanyID`, na početku i/ili na kraju se ne smije nalaziti razmak.*?",
+        "response": "Napako prejmete, saj v ovojnici računa manjkata podatka <package> </package> in <timestamp> </timestamp>."
+    },
+    {
+        "pattern": ".*?Napaka: Nepoznata kombinacija procesa i šifre tipa dokumenta.*?",
+        "response": "Napako prejmete s strani omrežja FINA. Prosim, da nam posredujete XML dokument računa, da preverimo razlog zavrnitve."
+    },
+    {
+        "pattern": ".*?Not implemented logic for 385 document type.*?",
+        "response": "Napako prejmete, saj omrežje v katerega prejemnik prejema eDokumente ne sprejema dokumentov tipa »385 – zbirni račun«."
     }
-
 
 ]
 
