@@ -197,7 +197,7 @@
     },
     {
         "pattern": ".*?Not implemented logic for 385 document type.*?",
-        "response": "Napako prejmete, saj omrežje v katerega prejemnik prejema eDokumente ne sprejema dokumentov tipa »385 – zbirni račun«."
+        "response": "Napako prejmete, saj v ovojnici računa manjkata podatka &lt;package&gt; &lt;/package&gt; in &lt;timestamp&gt; &lt;/timestamp&gt;."
     }
 
 ]
