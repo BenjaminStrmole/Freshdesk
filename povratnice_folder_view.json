@@ -140,8 +140,8 @@
         "response": "Napako prejmete, saj je v ovojnici računa zabeleženo, da je v paketu računa priložena tudi PDF priloga. V paketu, ki je prispel do našega omrežja, pa navedenih PDF prilog ni priloženih."
     },
     {
-        "pattern": ".*?Opozorilo: Priloga pod zaporedno št\\. \\d+: XML dokument v prilogi ni podpisan\\. Napaka:.*?",
-        "response": "Napako prejmete, saj XML dokument v prilogi ni podpisan. Preverite ali je pravilno digitalno podpisan."
+        "pattern": ".*?Opozorilo: Priloga pod zaporedno št\\. \\d+: XML dokument v prilogi ni podpisan\\. Napaka: (.*?) mora biti navedeno natanko enkrat!.*?",
+        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka matična številka prejemnika računa. Preverite XML strukturo in dodajte ustrezno vrednost."
     }
 ]
 
