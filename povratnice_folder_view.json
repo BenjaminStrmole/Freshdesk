@@ -280,9 +280,14 @@
         "response": "Napako prejmete, saj ste pokušali poslati prejemniku v spletno banko <strong>Revolut</strong>, katera še ni v omrežju SEPA."
     },
     {
-        "pattern": ".*?ERROR: Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (\\d+) in stolpcu (\\d+)! \\(Ime vozlišča: (.*?), tip vozlišča: (.*?), opis: (.*?)\\).*?",
+        "pattern": ".*?\\[ERROR: Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: (.*?), tip vozlišča: (.*?), opis: (.*?)\\)\\].*?",
+        "response": "Napako prejmete, saj v XML dokumentu računa manjka transakcijski račun (TRR) pošiljatelja. Napaka se nahaja v vrstici {1} in stolpcu {2}. Podrobnosti: Ime vozlišča: {3}, Tip vozlišča: {4}, Opis: {5}."
+    },
+    {
+        "pattern": ".*?ERROR: Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: (.*?), tip vozlišča: (.*?), opis: (.*?)\\).*?",
         "response": "Napako prejmete, saj v XML dokumentu računa manjka BIC koda pošiljatelja. Napaka se nahaja v vrstici {1} in stolpcu {2}. Podrobnosti: Ime vozlišča: {3}, Tip vozlišča: {4}, Opis: {5}."
     }
+
 
 
 
