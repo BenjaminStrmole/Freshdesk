@@ -268,7 +268,7 @@
     "response": "Omenjena napaka se pojavi pri pretvorbi v UBL in se vrednost ne zapiše v polje: &lt;cbc:taxableamount currencyid=RSD&gt;&lt;/cbc:taxableamount&gt;."
     },
     {
-    "pattern": ".*?\\[ERROR: Atribut &lt;(.*?)&gt; je obvezen\\.\\].*?",
+    "pattern": ".*?\\[ERROR: Atribut <(.*?)> je obvezen\\.\\].*?",
     "response": "Napako prejmete, saj priloga številka <strong>${1}</strong>, ki je navedena v ovojnici, ni priložena v paketu posredovanega dokumenta."
     },
     {
