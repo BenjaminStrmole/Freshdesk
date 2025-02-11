@@ -269,11 +269,11 @@
     },
     {
     "pattern": ".*?\\[ERROR: Atribut <(.*?)> je obvezen\\.\\].*?",
-    "response": "Napako prejmete, saj priloga številka <strong>${1}</strong>, ki je navedena v ovojnici, ni priložena v paketu posredovanega dokumenta."
+    "response": "Napako prejmete, saj priloga številka <strong>{1}</strong>, ki je navedena v ovojnici, ni priložena v paketu posredovanega dokumenta."
     },
     {
     "pattern": ".*?\\[ERROR: Banka izdajatelja RVUALT2VXXX ni v SEPA območju!\\].*?",
-    "response": "Napako prejmete, saj ste pokušali poslati prejemniku v spletno banko <strong>${1}</strong>, katera še ni v omrežju SEPA."
+    "response": "Napako prejmete, saj ste pokušali poslati prejemniku v spletno banko <strong>Revolut</strong>, katera še ni v omrežju SEPA."
     },
     {
     "pattern": ".*?\\[ERROR: Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: (.*?), tip vozlišča: (.*?), opis: (.*?)\\)\\].*?",
