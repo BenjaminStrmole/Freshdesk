@@ -118,7 +118,26 @@
     {
         "pattern": ".*?Invoice\\.BillingReference\\.InvoiceDocumentReference\\.ID: Cannot be defined InvoiceDocumentReference\\.ID with the InvoicePeriod\\.StartDate and InvoicePeriod\\.EndDate parameters.*?",
         "response": "Napako prejmete, saj morate v XML datoteki računa odstraniti začetek in konec obdobja računa ter dodati samo dejanski datum dobave oziroma storitve."
+    },
+    {
+        "pattern": ".*?Item description shall occur maximum once.*?",
+        "response": "Napako prejmete zaradi segmenta »A« v XML datoteki računa. Omenjen segment odstranite ali pa ga zapišete tako, da bo v sklopu enega segmenta."
+    },
+    {
+        "pattern": ".*?The allowed maximum number of decimals for the Document level allowance amount \\(BT-92\\).*?",
+        "response": "Napako prejmete, saj ste v XML datoteki računa izbrali davčno stopnjo »S-standardna stopnja« in 0% DDV. V kolikor želite imeti DDV enak 0% je potrebno izbrati »E – oproščene transakcije s pravico do odbitka DDV«."
+    },
+    {
+        "pattern": ".*?Iznos ukupnog PDV-a računa \\(BT-110\\) = (.*?) iznosa kategorije PDV-a \\(BT-117\\).*?",
+        "response": "Napako prejmete, saj ima prejemnikovo omrežje (FINA) toleranco do 0,01 eura. Preverite ali imate zneske v računu zapisane na več kot dve decimalni mesti, kar lahko povzroči, da se ne ujemajo."
+    },
+    {
+        "pattern": ".*?Manjkajo bančni podatki prejemnika!.*?",
+        "response": "Napako prejmete, saj v XML dokumentu računa manjkajo bančni podatki prejemnika (BIC in IBAN)."
+    },
+    {
+        "pattern": ".*?Napako prejmete, saj je v ovojnici računa zabeleženo, da je v paketu računa priložena tudi PDF priloga.*?",
+        "response": "Napako prejmete, saj v ovojnici računa manjkajo obvezne PDF priloge. Preverite, ali so pravilno dodane in ponovno pošljite paket."
     }
-
-
 ]
+
