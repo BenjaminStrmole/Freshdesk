@@ -287,12 +287,10 @@
     "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(.*? List of possible elements expected: 'sender_mailbox'\\.*?",
     "response": "Napako prejmete, saj v XML dokumentu računa manjka transakcijski račun (TRR) pošiljatelja."
     },
-    {
-    "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(.*? List of possible elements expected: 'sender_eddress'\\.*?",
+{
+    "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: (.*?), .*? List of possible elements expected: 'sender_eddress'\\.(.*?)",
     "response": "Napako prejmete, saj v XML dokumentu računa manjka BIC koda pošiljatelja."
-    }
-
-
+}
        
 
 ]
