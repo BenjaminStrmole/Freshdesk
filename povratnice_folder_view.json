@@ -288,9 +288,14 @@
         "response": "Napako prejmete, saj v XML dokumentu računa manjka BIC koda pošiljatelja."
     },
     {
-    "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: (.*?), tip vozlišča: (.*?), opis: The '(.*?)' element is invalid - The value '(.*?)' is invalid according to its datatype '(.*?)' - The Pattern constraint failed\\..*?",
-    "response": "Napako prejmete, saj imate v XML dokumentu računa napačen zapis transakcijskega računa (TRR). Pravilna oblika transakcijskega računa je SI56XXXXXXXXXXXXXXX."
+        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: (.*?), tip vozlišča: (.*?), opis: The '(.*?)' element is invalid - The value '(.*?)' is invalid according to its datatype '(.*?)' - The Pattern constraint failed\\..*?",
+        "response": "Napako prejmete, saj imate v XML dokumentu računa napačen zapis transakcijskega računa (TRR). Pravilna oblika transakcijskega računa je SI56XXXXXXXXXXXXXXX."
+    },
+    {
+        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: (.*?), tip vozlišča: (.*?), opis: The '(.*?)' element is invalid - The value '(.*?)' is invalid according to its datatype '(.*?)' - The actual length is greater than the MaxLength.*?",
+        "response": "Napako prejmete, saj imate preveliko število znakov v naslovu PDF priloge. Največja dovoljena dolžina imena priloge je 100 znakov."
     }
+    
 
 ]
 
