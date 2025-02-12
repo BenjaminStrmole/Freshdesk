@@ -302,7 +302,12 @@
     {
         "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: country, tip vozlišča: EndElement, opis: The 'country' element is invalid - The value '(.*?)' is invalid according to its datatype 'hal_Country' - The Pattern constraint failed(.*?)",
         "response": "Napako prejmete, saj imate napačno zapisano državo, in sicer namesto naprimer SLO, vpišite SI. V kolikor gre za drugo državo vnesite drugačno predpono."
+    },
+    {
+        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: receiver_mailbox, tip vozlišča: EndElement, opis: The 'receiver_mailbox' element is invalid - The value '(.*?)' is invalid according to its datatype 'hal_IBANIdentifier' - The Pattern constraint failed.*?",
+        "response": "Napako prejmete, saj imate v XML dokumentu računa napačen zapis transakcijskega računa (TRR). Pravilna oblika transakcijskega računa je SI56XXXXXXXXXXXXXXX."
     }
+
 
     
 
