@@ -292,9 +292,14 @@
         "response": "Napako prejmete, saj v XML dokumentu računa manjka BIC koda pošiljatelja."
     },
     {
-        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: sender_mailbox, tip vozlišča: EndElement, opis: The 'sender_mailbox' element is invalid - The value '(.*?)' is invalid according to its datatype 'hal_IBANIdentifier' - The Pattern constraint failed(.*?)",
+        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: sender_mailbox, tip vozlišča: EndElement, opis: The 'sender_mailbox' element is invalid - The value (.*?) is invalid according to its datatype 'hal_IBANIdentifier' - The Pattern constraint failed(.*?)",
         "response": "Napako prejmete, saj imate v XML dokumentu računa napačen zapis transakcijskega računa (TRR). Pravilna oblika transakcijskega računa je SI56XXXXXXXXXXXXXXX."
-    }
+    },
+    {
+        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: email_id, tip vozlišča: EndElement, opis: The 'email_id' element is invalid - The value (.*?) is invalid according to its datatype 'hal_Email' - The Pattern constraint failed(.*?)",
+        "response": "Napako prejmete, saj imate na mestu kjer sistem pričakuje elektronski naslov vpisan drug podatek."
+}
+
 
 
 
