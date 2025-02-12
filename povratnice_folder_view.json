@@ -283,7 +283,6 @@
         "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: (.*?), tip vozlišča: (.*?), opis: The '(.*?)' element is invalid - The value '(.*?)' is invalid according to its datatype '(.*?)' - The actual length is greater than the MaxLength.*?",
         "response": "Napako prejmete, saj imate preveliko število znakov v naslovu PDF priloge. Največja dovoljena dolžina imena priloge je 100 znakov."
     },
-    [
     {
         "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: (.*?), tip vozlišča: (.*?), opis: The element (.*?) has incomplete content\\. List of possible elements expected: `sender_mailbox`.*?\\).*?",
         "response": "Napako prejmete, saj v XML dokumentu računa manjka transakcijski račun (TRR) pošiljatelja."
@@ -297,9 +296,6 @@
         "response": "Napako prejmete, saj imate na mestu, kjer sistem pričakuje elektronski naslov, vpisan drug podatek."
     }
        
-]
-
-    
 
 ]
 
