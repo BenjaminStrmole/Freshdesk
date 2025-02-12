@@ -301,7 +301,7 @@
     },
     {
         "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: country, tip vozlišča: EndElement, opis: The 'country' element is invalid - The value '(.*?)' is invalid according to its datatype 'hal_Country' - The Pattern constraint failed(.*?)",
-        "response": "Napako prejmete, saj imate napačno zapisano državo, in sicer namesto SLO vpišite SI."
+        "response": "Napako prejmete, saj imate napačno zapisano državo, in sicer namesto naprimer SLO, vpišite SI. V kolikor gre za drugo državo vnesite drugačno predpono."
     }
 
     
