@@ -308,9 +308,10 @@
         "response": "Napako prejmete, saj imate v XML dokumentu računa napačen zapis transakcijskega računa (TRR). Pravilna oblika transakcijskega računa je SI56XXXXXXXXXXXXXXX."
     },
     {
-        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: receiver_eddress, tip vozlišča: EndElement, opis: The element 'receiver_eddress' has incomplete content\\. List of possible elements expected: 'receiver_mailbox(.*?)",
+        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: receiver_eddress, tip vozlišča: EndElement, opis: The element 'receiver_eddress' has incomplete content\\. List of possible elements expected: 'receiver_mailbox'(.*?)\\)",
         "response": "Napako prejmete, saj v XML dokumentu računa manjka transakcijski račun (TRR) prejemnika."
-    } 
+    }
+
 
 
 
