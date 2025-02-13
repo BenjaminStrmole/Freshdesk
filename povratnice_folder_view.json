@@ -314,7 +314,17 @@
     {
         "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: timestamp, (.*?)\\)",
         "response": "Napako prejmete, saj imate napačen zapis podatka »timestamp« v .XML dokumentu."
+    },
+    {
+        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: creditor, tip vozlišča: Element, opis: The element 'payment_data' has invalid child element 'creditor'\\. List of possible elements expected: 'payment_method'(.*?)\\)",
+        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka način plačila računa, ki je obvezen podatek."
+    },
+    {
+        "pattern": ".*?Napaka pri validaciji: cvc-complex-type\\.2\\.4\\.a: Najden neveljaven začetek vsebine z elementom `creditor`\\. Pričakuje se en od `\\{\"hal:icl:01\":payment_method\\}`(.*?)",
+        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka način plačila računa, ki je obvezen podatek."
     }
+
+
 
 
     
