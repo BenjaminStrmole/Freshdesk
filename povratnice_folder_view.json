@@ -324,9 +324,14 @@
         "response": "Napako prejmete, saj vam v XML dokumentu računa manjka način plačila računa, ki je obvezen podatek."
     },
     {
-        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: debtor_account, tip vozlišča: Element, opis: The element 'debtor' has invalid child element 'debtor_account'\\. List of possible elements expected: 'address, identification, debtor_agent'(.*?)\\)",
+        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: debtor_account, tip vozlišča: Element, opis: The element 'debtor' has invalid child element 'debtor_account'\\. List of possible elements expected: 'address, identification, debtor_agent(.*?)",
         "response": "Napako prejmete, saj vam v XML dokumentu računa manjka BIC koda prejemnika računa."
+    },
+    {
+        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: debtor_agent, tip vozlišča: EndElement, opis: The 'debtor_agent' element is invalid - The value '(.*?)' is invalid according to its datatype 'hal_BICIdentifier' - The Pattern constraint failed(.*?)",
+        "response": "Napako prejmete, saj imate v XML dokumentu računa napačen zapis formata BIC kode plačnika računa. BIC koda mora vsebovati 11 znakov."
     }
+
 
 
 
