@@ -329,17 +329,17 @@
     },
     {
         "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: debtor_agent, tip vozlišča: EndElement, opis: The 'debtor_agent' element is invalid - The value '(.*?)' is invalid according to its datatype 'hal_BICIdentifier' - The Pattern constraint failed(.*?)",
-        "response": "Napako prejmete, saj imate v XML dokumentu računa napačen zapis formata BIC kode plačnika računa. BIC koda mora vsebovati 11 znakov."
+        "response": "Napako prejmete, saj imate v eRačunu napačen zapis formata BIC kode plačnika računa. BIC koda mora vsebovati 11 znakov."
     },
     {
         "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: currency, tip vozlišča: Element, opis: The element [`']payment_data[`'] has invalid child element [`']currency[`']\\. List of possible elements expected: [`']amount[`'](.*?)",
-        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka (ali pa je ta napačno izpolnjen) podatek, ki označuje skupni znesek za plačilo."
+        "response": "Napako prejmete, saj vam v eRačunu manjka (ali pa je ta napačno izpolnjen) podatek, ki označuje skupni znesek za plačilo."
     },
     {
         "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: payment_data, tip vozlišča: EndElement, opis: The element 'payment_data' has incomplete content\\. List of possible elements expected: [`']purpose[`'](.*?)",
-        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka namen plačila."
+        "response": "Napako prejmete, saj vam v eRačunu manjka namen plačila."
     }
-
+    
     
 
 
