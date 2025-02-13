@@ -310,13 +310,14 @@
     {
         "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: receiver_eddress, tip vozlišča: EndElement, opis: The element 'receiver_eddress' has incomplete content\\. List of possible elements expected: 'receiver_mailbox.*?",
         "response": "Napako prejmete, saj v XML dokumentu računa manjka transakcijski račun (TRR) prejemnika."
+    },
+    {
+        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: timestamp, (.*?)\\)",
+        "response": "Napako prejmete, saj imate napačen zapis podatka »timestamp« v .XML dokumentu."
     }
+
+
     
-
-
-
-
-
     
 ]
 
