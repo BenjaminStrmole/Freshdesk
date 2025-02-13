@@ -336,9 +336,14 @@
         "response": "Napako prejmete, saj vam v eRačunu manjka (ali pa je ta napačno izpolnjen) podatek, ki označuje skupni znesek za plačilo."
     },
     {
-        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: payment_data, tip vozlišča: EndElement, opis: The element [`']payment_data[`'] has incomplete content\\. List of possible elements expected: [`']purpose[`']\\.(.*?)",
+        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: payment_data, tip vozlišča: EndElement, opis: The element [`']payment_data[`'] has incomplete content\\. List of possible elements expected: [`']purpose[`']\\(.*?)",
         "response": "Napako prejmete, saj vam v eRačunu manjka namen plačila."
+    },
+    {
+        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (.*?) in stolpcu (.*?)! \\(Ime vozlišča: remittance_information, tip vozlišča: EndElement, opis: The element [`']remittance_information[`'] has incomplete content\\. List of possible elements expected: [`']additional_remittance_information[`']\\(.*?)",
+        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka namen plačila."
     }
+
 
 
 
