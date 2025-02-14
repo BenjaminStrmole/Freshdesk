@@ -420,7 +420,7 @@
         "response": "Napako prejmete, saj imate zapisan napačen TRR/IBAN. S prejemnikom računa preverite veljavnost navedenega podatka."
     },
     {
-        "pattern": ".*?Ovojnica ne ustreza predpisani shemi\\. Napaka v vrstici (\\d+) in stolpcu (\\d+)! \\(Ime vozlišča: receiver_eddress, tip vozlišča: EndElement, opis: The element 'receiver_eddress' has incomplete content\\. List of possible elements expected: 'receiver_mailbox.*?",
+        "pattern": ".*?Ovojnica ne ustreza predpisani shemi\\. Napaka v vrstici (\\d+) in stolpcu (\\d+)! \\(Ime vozlišča: receiver_eddress, tip vozlišča: EndElement, opis: The element 'receiver_eddress' has incomplete content\\. List of possible elements expected: 'receiver_mailbox(*?)",
         "response": "Napako prejmete, saj v XML dokumentu računa manjka transakcijski račun (TRR) prejemnika. Napaka se nahaja v vrstici <strong>{1}</strong> in stolpcu <strong>{2}</strong>."
     }
 
