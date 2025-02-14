@@ -366,7 +366,7 @@
     {
         "pattern": ".*?Napaka: Vozlišče datum računa (.*?) je navedeno napačno.*?",
         "response": "Napako prejmete, saj vam v XML dokumentu eRačuna manjka datum začetka in konca obdobja računa. Preverite ali imate pravilno izpolnjen segment <strong>{1}</strong> in poskusite znova."
-    },
+    }
     
 
   
