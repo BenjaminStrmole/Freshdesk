@@ -353,8 +353,13 @@
     },
     {
         "pattern": ".*?Napaka: Postavka (\\d+) - Vozlišče enota mere (.*?) je obvezno.*?",
-        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka enota mere zaračunane količine pri postavki <strong>{1}</strong>. Preverite pravilno izpolnjen segment <strong>{2}</strong> in poskusite znova."
+        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka enota mere zaračunane količine. Preverite alii imate pravilno izpolnjen segment <strong>{2}</strong> in poskusite znova."
+    },
+    {
+        "pattern": ".*?Napaka: Postavka (\\d+) - Vozlišče naziv (.*?) je obvezno.*?",
+        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka naziv za postavko ali opomba vrstice računa. Preverite ali imate pravilno izpolnjen segment <strong>{2}</strong> in poskusite znova."
     }
+
 
 
 
