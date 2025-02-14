@@ -368,8 +368,8 @@
         "response": "Napako prejmete, saj vam v XML dokumentu eRačuna manjka datum začetka in konca obdobja računa. Preverite ali imate pravilno izpolnjen segment <strong>{1}</strong> in poskusite znova."
     },
     {
-        "pattern": ".*?Napaka: Vozlišče davčna št\\. prejemnika (/Invoice/M_INVOIC/G_SG2\\[S_NAD/D_3035='BY'\\]/G_SG3\\[S_RFF/C_C506/D_1153='(VA|AHP)'\\]/S_RFF/C_C506/D_1154) mora biti navedeno natanko enkrat.*?",
-        "response": "Napako prejmete zaradi več razlogov:<br>- V XML dokumentu računa manjka davčna številka prejemnika ali<br>- V XML dokumentu računa imate segment <strong>{2}</strong>, ki je namenjen zgolj davčnim zavezancem. Preverite pravilno izpolnjen segment <strong>{1}</strong> in poskusite znova."
+        "pattern": ".*?Napaka: Vozlišče davčna št\\. prejemnika (.*?) mora biti navedeno natanko enkrat.*?",
+        "response": "Napako prejmete zaradi več razlogov:<br>- V XML dokumentu računa manjka davčna številka prejemnika ali<br>- V XML dokumentu računa imate segment, ki je namenjen zgolj davčnim zavezancem. Preverite ali imate pravilno izpolnjen segment in poskusite znova."
     }
 
     
