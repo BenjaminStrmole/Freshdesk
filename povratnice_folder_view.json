@@ -340,9 +340,14 @@
         "response": "Napako prejmete, saj vam v XML dokumentu računa manjka namen plačila."
     },
     {
-    "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (\\d+) in stolpcu (\\d+)! \\(Ime vozlišča: remittance_information, tip vozlišča: EndElement, opis: The element 'remittance_information' has incomplete content\\. List of possible elements expected: 'additional_remittance_information'\\..*?\\)",
-    "response": "Napako prejmete, saj vam v XML dokumentu računa manjka namen plačila."
+        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (\\d+) in stolpcu (\\d+)! \\(Ime vozlišča: remittance_information, tip vozlišča: EndElement, opis: The element 'remittance_information' has incomplete content\\. List of possible elements expected: 'additional_remittance_information'\\..*?\\)",
+        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka namen plačila."
+    },
+    {
+        "pattern": ".*?Napaka v strukturi ovojnice: java\\.lang\\.RuntimeException: DocType \\[(.*?)\\] is not supported.*?",
+        "response": "Napako prejmete, saj se ovojnica ni pravilno kreirala. V sami ovojnici manjkajo parametri, ki so pomembni za usmerjanje paketa v drugo omrežje. Obrnite se na ponudnika programske opreme."
     }
+
 
 
     
