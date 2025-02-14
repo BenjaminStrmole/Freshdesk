@@ -364,10 +364,9 @@
         "response": "Napako prejmete, saj vam v XML dokumentu računa manjka datum plačila. Preverite pravilno izpolnjen segment <strong>{1}</strong> in poskusite znova."
     },
     {
-    "pattern": ".*?Napaka: Vozlišče datum računa[\\s]+/Invoice/M_INVOIC/S_DTM\\[C_C507/D_2005='([^']+)'\\]/C_C507/D_2380[\\s]+je navedeno napačno.*?([\\d\\s\\w\\W]*)",
-    "response": "Napako prejmete, saj vam v XML dokumentu eRačuna manjka datum začetka in konca obdobja računa."
+        "pattern": ".*?Napaka: Vozlišče datum računa (.*?) je navedeno napačno.*?",
+        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka datum začetka in konca obdobja računa. Neveljavna vrednost datuma: <strong>{2}</strong>. Preverite pravilno izpolnjen segment <strong>{1}</strong> in poskusite znova."
     }
-
 
   
 ]
