@@ -406,6 +406,11 @@
     {
         "pattern": ".*?Nezadosten nivo pravic ali pa izdajatelja za davčno številko ([A-Z0-9]+) ni mogoče najti!.*?",
         "response": "Napako prejmete, saj še niste dodani na seznam proračunskih uporabnikov kot izdajatelj. Obrnite se na naš naročninski oddelek <a href='mailto:narocnine@zzi.si'>narocnine@zzi.si</a>."
+    },
+    {
+        "pattern": ".*?Strukturirana referenca mora imeti obliko SI ali RF*?",
+        "response": "Napako lahko prejmete zaradi več razlogov. Preverite:<br>- Referenca plačila se lahko začne le s predpono <strong>SI</strong> ali <strong>RF</strong>.<br>- Vsebuje lahko le alfanumerične znake, minus/pomišljaj (na petem mestu v sklicu ne sme biti čudnih znakov).<br>PRIMER: <strong>SI00123456</strong>."
     }
+
 
 ]
