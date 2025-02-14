@@ -400,7 +400,7 @@
         "response": "Napako lahko prejmete zaradi več razlogov. Preverite:<br>- Referenca plačila se lahko začne le s predpono <strong>SI</strong> ali <strong>RF</strong>.<br>- Vsebuje lahko le alfanumerične znake, minus/pomišljaj (na petem mestu v sklicu ne sme biti posebnih znakov).<br><strong>PRIMER:</strong> SI00123456"
     },
     {
-        "pattern": ".*?Napačna SWIFT/BIC koda banke izdajatelja: ([A-Z0-9]+)!.*?",
+        "pattern": ".*?Napačna SWIFT/BIC koda banke izdajatelja: ([A-Z0-9]+).*?",
         "response": "Napako lahko prejmete zaradi več razlogov. Preverite:<br>- Ali imate vpisano pravilno BIC kodo? Pravilno BIC kodo glede na banko prejemnika lahko preverite na naslednji povezavi: <a href='https://www.bsi.si/placila-in-infrastruktura/placilne-storitve-in-elektronski-denar/identifikacijske-oznake-in-kode-bic' target='_blank'>BSI - BIC kode</a>.<br>- BIC koda mora vsebovati 8 ali 11 znakov. Če ne vsebuje 11 znakov, dodajte <strong>XXX</strong>."
     }
 
