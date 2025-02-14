@@ -390,13 +390,11 @@
     {
         "pattern": ".*?Napaka: Vozlišče referenčni dokument(.*?) je obvezno.*?",
         "response": "Napako prejmete, saj vam v XML dokumentu računa manjka eden od referenčnih dokumentov (pogodba/dobavnica/naročilo)."
+    },
+    {
+        "pattern": ".*?Napaka: Vozlišče znesek davka(.*?) je obvezno.*?",
+        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka skupni znesek davka za dano kategorijo DDV."
     }
 
-
-    
-
-
-
-    
+   
 ]
-
