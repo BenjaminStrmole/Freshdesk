@@ -394,7 +394,12 @@
     {
         "pattern": ".*?Napaka: Vozlišče znesek davka(.*?) je obvezno.*?",
         "response": "Napako prejmete, saj vam v XML dokumentu računa manjka skupni znesek davka za dano kategorijo DDV."
+    },
+    {
+        "pattern": ".*?Napačen model v referenci plačila \\((\\d+)\\)!.*?",
+        "response": "Napako lahko prejmete zaradi več razlogov. Preverite:<br>- Referenca plačila se lahko začne le s predpono <strong>SI</strong> ali <strong>RF</strong>.<br>- Vsebuje lahko le alfanumerične znake, minus/pomišljaj (na petem mestu v sklicu ne sme biti čudnih znakov).<br><strong>PRIMER:</strong> SI00123456"
     }
+
 
    
 ]
