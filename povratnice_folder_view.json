@@ -380,7 +380,7 @@
         "response": "Napako prejmete, saj vam v XML dokumentu računa manjka naziv izdajatelja računa. Preverite pravilno izpolnjene podatke in poskusite znova."
     },
     {
-        "pattern": ".*?Napaka: Vozlišče račun prejemnik (.*?) mora biti navedeno natanko enkrat.*?",
+        "pattern": ".*?Napaka: Vozlišče račun prejemnik(.*?) mora biti navedeno natanko enkrat.*?",
         "response": "Napako prejmete zaradi manjkajočega podatka IBAN. Napaka se lahko pojavi tudi, če imate segment v katerem je naveden IBAN zapisan več kot enkrat!"
     },
     {
