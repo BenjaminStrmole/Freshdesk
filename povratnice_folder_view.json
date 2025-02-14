@@ -370,7 +370,16 @@
     {
         "pattern": ".*?Napaka: Vozlišče davčna št\\. prejemnika (.*?) mora biti navedeno natanko enkrat.*?",
         "response": "Napako prejmete zaradi več razlogov:<br>- V XML dokumentu računa manjka davčna številka prejemnika ali<br>- V XML dokumentu računa imate segment, ki je namenjen zgolj davčnim zavezancem. Preverite ali imate pravilno izpolnjen segment in poskusite znova."
+    },
+    {
+        "pattern": ".*?Napaka: Vozlišče matična št\\. izdajatelja \\(pravne osebe\\) (.*?) mora biti navedeno natanko enkrat.*?",
+        "response": "Napako prejmete, saj vam v XML dokumentu eRačuna manjka matična številka pošiljatelja. Preverite ali imate pravilno izpolnjene podatke in poskusite znova."
+    },
+    {
+        "pattern": ".*?Napaka: Vozlišče naziv izdajatelja (.*?) je obvezno.*?",
+        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka naziv izdajatelja računa. Preverite pravilno izpolnjene podatke in poskusite znova."
     }
+
 
     
 ]
