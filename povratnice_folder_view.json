@@ -414,8 +414,11 @@
     {
         "pattern": ".*?Opozorilo: Navedene (\\d+) mestne SWIFT/BIC kode banke izdajatelja (\\S+) ni mogoče najti.*?",
         "response": "Napako lahko prejmete zaradi več razlogov. Preverite:<br>- Ali imate vpisano pravilno BIC kodo? Pravilno BIC kodo glede na banko prejemnika lahko preverite na naslednji povezavi: <a href='https://www.bsi.si/placila-in-infrastruktura/placilne-storitve-in-elektronski-denar/identifikacijske-oznake-in-kode-bic' target='_blank'>BSI - Identifikacijske oznake in kode BIC</a>.<br>- BIC koda mora vsebovati 11 mest. V kolikor ne vsebuje 11 mest, dodajte <strong>XXX</strong>."
+    },
+    {
+        "pattern": ".*?Opozorilo: Račun (.*?) ne pripada izdajatelju z davčno številko.*?",
+        "response": "Napako prejmete, saj imate zapisan napačen TRR/IBAN. S prejemnikom računa preverite veljavnost navedenega podatka."
     }
-
 
 
 ]
