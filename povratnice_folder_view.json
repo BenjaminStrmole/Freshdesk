@@ -350,7 +350,12 @@
     {
         "pattern": ".*?Napaka: Podatki o izdajatelju (.*?) so obvezni.*?",
         "response": "Napako prejmete, saj v XML dokumentu računa manjkajo podatki o izdajatelju. Preverite, ali je pravilno izpolnjen segment <strong>{1}</strong> in poskusite znova."
+    },
+    {
+        "pattern": ".*?Napaka: Postavka (\\d+) - Vozlišče enota mere (.*?) je obvezno.*?",
+        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka enota mere zaračunane količine pri postavki <strong>{1}</strong>. Preverite pravilno izpolnjen segment <strong>{2}</strong> in poskusite znova."
     }
+
 
 
 
