@@ -348,8 +348,8 @@
         "response": "Napako prejmete, saj se ovojnica ni pravilno kreirala. V sami ovojnici manjkajo parametri, ki so pomembni za usmerjanje paketa v drugo omrežje. Obrnite se na ponudnika programske opreme."
     },
     {
-    "pattern": ".*?Napaka: Podatki o izdajatelju (.*?) so obvezni.*?",
-    "response": "Napako prejmete, saj v XML dokumentu računa manjkajo podatki o izdajatelju. Preverite, ali je pravilno izpolnjen segment <strong>${1}</strong> in poskusite znova."
+        "pattern": ".*?Napaka: Podatki o izdajatelju (.*?) so obvezni.*?",
+        "response": "Napako prejmete, saj v XML dokumentu računa manjkajo podatki o izdajatelju. Preverite, ali je pravilno izpolnjen segment <strong>{1}</strong> in poskusite znova."
     }
 
 
