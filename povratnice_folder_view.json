@@ -515,6 +515,4 @@
         "pattern": ".*?Napaka: Vozlišče matična št\\. izdajatelja \\(pravne osebe\\)(.*?) mora biti navedeno natanko enkrat!.*?",
         "response": "Račun ne vsebuje matične številke pošiljatelja eRačuna. Preverite, ali je matična številka pravilno izpolnjena in poskusite znova."
     }
-
-
 ]
