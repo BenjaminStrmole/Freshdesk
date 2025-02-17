@@ -421,11 +421,20 @@
     },
     {
         "pattern": ".*?Ovojnica ne ustreza predpisani shemi\\. Napaka v vrstici (\\d+) in stolpcu (\\d+)! \\(Ime vozlišča: receiver_eddress, tip vozlišča: EndElement, opis: The element 'receiver_eddress' has incomplete content\\. List of possible elements expected: 'receiver_mailbox'.*?\\)",
-        "response": "Napako prejmete, saj v XML dokumentu računa manjka transakcijski račun (TRR) prejemnika. Napaka se nahaja v vrstici <strong>{1}</strong> in stolpcu <strong>{2}</strong>."
+        "response": "Napako prejmete, saj v XML dokumentu računa manjka transakcijski račun (TRR) prejemnika."
+    },
+    {
+        "pattern": ".*?Ovojnica ne ustreza predpisani shemi\\. Napaka v vrstici (\\d+) in stolpcu (\\d+)! \\(Ime vozlišča: creditor, tip vozlišča: Element, opis: The element 'payment_data' has invalid child element 'creditor'\\. List of possible elements expected: 'payment_method'.*?\\)",
+        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka način plačila računa, ki je obvezen podatek."
+    },
+    {
+        "pattern": ".*?Ovojnica ne ustreza predpisani shemi\\. Napaka v vrstici (\\d+) in stolpcu (\\d+)! \\(Ime vozlišča: address, tip vozlišča: Element, opis: The element 'debtor' has invalid child element 'address'\\. List of possible elements expected: 'country'.*?\\)",
+        "response": "Napako prejmete, saj imate v XML dokumentu računa napačno zapisan podatek država pri prejemniku računa."
+    },
+    {
+        "pattern": ".*?Ovojnica ne ustreza predpisani shemi\\. Napaka v vrstici (\\d+) in stolpcu (\\d+)! \\(Ime vozlišča: debtor_account, tip vozlišča: Element, opis: The element 'debtor' has invalid child element 'debtor_account'\\. List of possible elements expected: 'address, identification, debtor_agent'.*?\\)",
+        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka BIC koda prejemnika računa."
     }
-
-
-
 
 
 
