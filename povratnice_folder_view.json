@@ -474,16 +474,24 @@
     {
         "pattern": ".*?(Izdajatelj ni registriran za izdajanje e-dokumentov fizičnim in pravnim osebam!).*?",
         "response": "Napako prejmete, saj na UJP omrežju nimate še urejenih vseh pravic. Predlagam, da se obrnete na UJP omrežje."
+    },
+    {
+        "pattern": ".*?Račun in BIC koda \\((.*?)\\) izdajatelja računa mora biti enaka kot račun in BIC koda \\((.*?)\\) prejemnika plačila!.*?",
+        "response": "Napako prejmete, saj imate zapisan napačen TRR. S prejemnikom računa preverite veljavnost navedenega TRRja."
+    },
+    {
+        "pattern": ".*?Ne najdem prejemnika, ker izdajatelj ni znan!.*?",
+        "response": "Napako lahko prejmete zaradi več razlogov. Preverite:<br>- Ali imate vpisano pravilno BIC kodo? Pravilno BIC kodo glede na banko prejemnika lahko preverite na naslednji povezavi: <a href='https://www.bsi.si/placila-in-infrastruktura/placilne-storitve-in-elektronski-denar/identifikacijske-oznake-in-kode-bic' target='_blank'>BSI - Identifikacijske oznake in kode BIC</a>.<br>- BIC koda mora vsebovati 11 mest. V kolikor ne vsebuje 11 mest, dodajte <strong>XXX</strong>."
+    },
+    {
+        "pattern": ".*?Račun izdajatelja \\((.*?)\\) ali njegov naslednik ne obstaja ali ni aktiven!.*?",
+        "response": "Napako prejmete, saj imate zapisan napačen TRR <strong>{1}</strong>. S prejemnikom računa preverite veljavnost navedenega TRR-ja."
+    },
+    {
+        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (\\d+) in stolpcu (\\d+)! \\(Ime vozlišča: amount, tip vozlišča: Element, opis: The element 'payment_data' has invalid child element 'amount'\\. List of possible elements expected: 'ultimate_debtor, requested_execution_date'\\..*?\\)",
+        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka <strong>Datum zapadlosti račun/rok plačila</strong>. Napaka se nahaja v vrstici <strong>{1}</strong> in stolpcu <strong>{2}</strong>."
     }
-
-
-
-
-
-
-
     
-
 
 
 
