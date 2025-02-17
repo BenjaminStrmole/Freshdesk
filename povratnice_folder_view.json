@@ -494,9 +494,19 @@
     {
         "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (\\d+) in stolpcu (\\d+)! \\(Ime vozlišča: amount, tip vozlišča: Element, opis: The element 'payment_data' has invalid child element 'amount'\\. List of possible elements expected: 'ultimate_debtor, requested_execution_date'\\..*?\\)",
         "response": "Napako prejmete, saj vam v XML dokumentu računa manjka <strong>Datum zapadlosti račun/rok plačila</strong>. Napaka se nahaja v vrstici <strong>{1}</strong> in stolpcu <strong>{2}</strong>."
+    },
+    {
+        "pattern": ".*?Sklic plačila: Dolžina ni v okviru predpisanih meja!.*?",
+        "response": "Napaka pomeni, da vpisani sklic plačila (strukturirana referenca) ni prave dolžine po shemi eSlog. Največje število znakov sklica ne sme presegati 35 znakov. Številko za sklic se sicer sestavlja po pravilniku ZBS »Pravila za oblikovanje in uporabo standardiziranih referenc pri opravljanju plačilnih storitev«."
+    },
+    {
+        "pattern": ".*?Račun v prilogi ne ustreza predpisani shemi za E-Slog\\. Napaka v vrstici (\\d+) in stolpcu (\\d+)!.*?List of possible elements expected: '(.*?)'.*?",
+        "response": "Pri taki vrsti napake pogledamo, kateri podatki so navedeni kot pričakovani (List of possible elements expected). V zgornjem primeru je naveden »sender_agent«, kar pomeni, da v eRačunu manjka podatek BIC koda banke pošiljatelja."
+    },
+    {
+        "pattern": ".*?Priloga (\\d+) : Priloga pod zaporedno št\\. (\\d+): Račun v prilogi ne ustreza predpisani shemi za E-Slog\\. Napaka v vrstici (.*?) in stolpcu (.*?)!.*?opis: (.*?)\\..*?",
+        "response": "Ta napaka bi lahko imela več vzrokov, saj je vzrok <strong>{5}</strong> neznan. Po naših dosedanjih izkušnjah pa je bil najpogostejši vzrok te napake podatek <strong>enota mere</strong>, ki je imel odvečne znake (npr. presledke). Napaka se nahaja v prilogi <strong>{1}</strong> pod zaporedno številko <strong>{2}</strong> in je bila zaznana v vrstici <strong>{3}</strong> ter stolpcu <strong>{4}</strong>."
     }
-    
-
 
 
 ]
