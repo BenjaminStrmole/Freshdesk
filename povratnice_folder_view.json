@@ -462,7 +462,12 @@
     {
         "pattern": ".*?Račun (.*?) ne ustreza IBAN formatu*?",
         "response": "Napako prejmete, saj imate v XML dokumentu računa napačen zapis transakcijskega računa (TRR). Pravilna oblika transakcijskega računa je <strong>SI56XXXXXXXXXXXXXXX</strong>. Preverite zapis in poskusite znova."
+    },
+    {
+        "pattern": ".*?Račun prejemnika \\((.*?)\\) ali njegov naslednik ne obstaja ali ni aktiven.*?Prejemnika z računom (.*?) in davčno številko (.*?) ni mogoče najti znotraj sistema UJPnet.*?Račun plačnika \\((.*?)\\) ali njegov naslednik ne obstaja ali ni aktiven.*?Opozorilo: RF referenca plačila ima napačno kontrolno številko \\(MOD 97\\)!.*?",
+        "response": "Napako prejmete, saj imate zapisan napačen TRR. S prejemnikom računa preverite veljavnost navedenega TRR-ja <strong>{2}</strong> in davčno številko <strong>{3}</strong>. Prav tako preverite TRR plačnika <strong>{4}</strong>."
     }
+
 
 
 
