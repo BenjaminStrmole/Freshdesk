@@ -434,6 +434,18 @@
     {
         "pattern": ".*?Ovojnica ne ustreza predpisani shemi\\. Napaka v vrstici (\\d+) in stolpcu (\\d+)! \\(Ime vozlišča: debtor_account, tip vozlišča: Element, opis: The element 'debtor' has invalid child element 'debtor_account'\\. List of possible elements expected: 'address, identification, debtor_agent'.*?\\)",
         "response": "Napako prejmete, saj vam v XML dokumentu računa manjka BIC koda prejemnika računa."
+    },
+    {
+        "pattern": ".*?Ovojnica ne ustreza predpisani shemi\\. Napaka v vrstici (\\d+) in stolpcu (\\d+)! \\(Ime vozlišča: remittance_information, tip vozlišča: EndElement, opis: The element 'remittance_information' has incomplete content\\. List of possible elements expected: 'additional_remittance_information'.*?\\)",
+        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka namen plačila."
+    },
+    {
+        "pattern": ".*?Prejemnika z računom (.*?) in davčno številko (.*?) ni mogoče najti znotraj sistema UJPnet.*?",
+        "response": "Napako prejmete, saj imate zapisan napačen TRR prejemnika računa. Pravilen TRR prejemnika znotraj UJP omrežja lahko preverite na naslednji povezavi: <a href='https://storitve.ujp.gov.si/docdir/eracunpu/eRacunPU_Dnevni.xml' target='_blank'>UJP omrežje</a>."
+    },
+    {
+        "pattern": ".*?Priloga pod zaporedno št\\.?\\s*(\\d+)[:]? Certifikat v podpisu pod zap\\. številko (\\d+) je bil preklican! \\(Podpisnik: (.*?)\\).*?",
+        "response": "Napako prejmete, saj je certifikat <strong>{3}</strong>, ki ste ga izbrali za podpis eDokumentov preklican. Preverite veljavnost in poskusite znova."
     }
 
 
