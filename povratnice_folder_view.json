@@ -450,7 +450,17 @@
     {
         "pattern": ".*?Priloga pod zaporedno št\\.?\\s*(\\d+)[:]? Certifikat v podpisu pod zap\\. številko (\\d+) ni veljaven, razlog: (.*?)! \\(Podpisnik: \\\"?(.*?)\\\"?\\).*?",
         "response": "Napako prejmete zaradi napačnega certifikata za podpisovanje. Razlog: <strong>{3}</strong>. Certifikat pripada podpisniku <strong>{4}</strong>. Preverite, ali je izbran pravilen in veljaven certifikat."
+    },
+    {
+        "pattern": ".*?Priloga pod zaporedno št\\.?\\s*(\\d+)[:]? Certifikat v podpisu pod zap\\. številko (\\d+) velja samo za obdobje od (.*?) do (.*?)! \\(Podpisnik: (.*?)\\).*?",
+        "response": "Napako prejmete, saj vam je potekel certifikat za podpisovanje eDokumentov. Certifikat podpisnika <strong>{5}</strong> je bil veljaven le od <strong>{3}</strong> do <strong>{4}</strong>. Preverite veljavnost in uporabite drug certifikat."
+    },
+    {
+        "pattern": ".*?Prva dva znaka številke računa izdajatelja morata biti enaka (\\d{1,2})\\. in (\\d{1,2})\\. znaku BIC kode banke.*?",
+        "response": "Napako prejmete, saj imate v XML dokumentu napačen zapis BIC kode. Preverite, ali sta prva dva znaka številke računa enaka <strong>{1}</strong> in <strong>{2}</strong>."
     }
+
+
 
     
 
