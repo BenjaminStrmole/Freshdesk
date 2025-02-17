@@ -458,7 +458,12 @@
     {
         "pattern": ".*?Prva dva znaka številke računa izdajatelja morata biti enaka (\\d{1,2})\\. in (\\d{1,2})\\. znaku BIC kode banke.*?",
         "response": "Napako prejmete, saj imate v XML dokumentu napačen zapis BIC kode. Preverite, ali sta prva dva znaka številke računa enaka <strong>{1}</strong> in <strong>{2}</strong>."
+    },
+    {
+        "pattern": ".*?Račun (.*?) ne ustreza IBAN formatu*?",
+        "response": "Napako prejmete, saj imate v XML dokumentu računa napačen zapis transakcijskega računa (TRR). Pravilna oblika transakcijskega računa je <strong>SI56XXXXXXXXXXXXXXX</strong>. Preverite zapis in poskusite znova."
     }
+
 
 
 
