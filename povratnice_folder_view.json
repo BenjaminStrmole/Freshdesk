@@ -448,9 +448,10 @@
         "response": "Napako prejmete, saj je certifikat <strong>{3}</strong>, ki ste ga izbrali za podpis eDokumentov preklican. Preverite veljavnost in poskusite znova."
     },
     {
-        "pattern": ".*?Priloga pod zaporedno št\\.?\\s*(\\d+)[:]? Certifikat v podpisu pod zap\\. številko (\\d+) ni namenjen elektronskemu podpisovanju! \\(Podpisnik: (.*?)\\).*?",
-        "response": "Napako prejmete, saj certifikat <strong>{3}</strong>, ki ste ga izbrali, ni namenjen elektronskemu podpisovanju dokumentov."
+        "pattern": ".*?Priloga pod zaporedno št\\.?\\s*(\\d+)[:]? Certifikat v podpisu pod zap\\. številko (\\d+) ni veljaven, razlog: (.*?)! \\(Podpisnik: \\\"?(.*?)\\\"?\\).*?",
+        "response": "Napako prejmete zaradi napačnega certifikata za podpisovanje. Razlog: <strong>{3}</strong>. Certifikat pripada podpisniku <strong>{4}</strong>. Preverite, ali je izbran pravilen in veljaven certifikat."
     }
+
     
 
 
