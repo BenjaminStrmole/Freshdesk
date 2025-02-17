@@ -466,7 +466,12 @@
     {
         "pattern": ".*?Račun prejemnika \\((.*?)\\) ali njegov naslednik ne obstaja ali ni aktiven.*?Prejemnika z računom (.*?) in davčno številko (.*?) ni mogoče najti znotraj sistema UJPnet.*?Račun plačnika \\((.*?)\\) ali njegov naslednik ne obstaja ali ni aktiven.*?Opozorilo: RF referenca plačila ima napačno kontrolno številko \\(MOD 97\\)!.*?",
         "response": "Napako prejmete, saj imate zapisan napačen TRR. S prejemnikom računa preverite veljavnost navedenega TRR-ja <strong>{2}</strong> in davčno številko <strong>{3}</strong>. Prav tako preverite TRR plačnika <strong>{4}</strong>."
+    },
+    {
+        "pattern": ".*?Račun prejemnika (.*?) ne pripada udeležencu UJP (.*?)\\. Neustrezna BIC koda.*?",
+        "response": "Napako lahko prejmete zaradi več razlogov. Preverite:<br>- Ali imate vpisano pravilno BIC kodo? Pravilno BIC kodo glede na banko prejemnika lahko preverite na naslednji povezavi: <a href='https://www.bsi.si/placila-in-infrastruktura/placilne-storitve-in-elektronski-denar/identifikacijske-oznake-in-kode-bic' target='_blank'>BSI - Identifikacijske oznake in kode BIC</a>.<br>- BIC koda mora vsebovati 11 mest. V kolikor ne vsebuje 11 mest, dodajte <strong>XXX</strong>."
     }
+
 
 
 
