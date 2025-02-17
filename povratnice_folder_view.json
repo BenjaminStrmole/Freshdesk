@@ -506,6 +506,14 @@
     {
         "pattern": ".*?Priloga (\\d+) : Priloga pod zaporedno št\\. (\\d+): Račun v prilogi ne ustreza predpisani shemi za E-Slog\\. Napaka v vrstici (.*?) in stolpcu (.*?)!.*?opis: (.*?)\\..*?",
         "response": "Ta napaka bi lahko imela več vzrokov, saj je vzrok <strong>{5}</strong> neznan. Po naših dosedanjih izkušnjah pa je bil najpogostejši vzrok te napake podatek <strong>enota mere</strong>, ki je imel odvečne znake (npr. presledke). Napaka se nahaja v prilogi <strong>{1}</strong> pod zaporedno številko <strong>{2}</strong> in je bila zaznana v vrstici <strong>{3}</strong> ter stolpcu <strong>{4}</strong>."
+    },
+    {
+        "pattern": ".*?Priloga pod zaporedno št\\. (\\d+): XML dokument v prilogi ni podpisan\\. Napaka: Vozlišče matična št\\. prejemnika \\(pravne osebe(.*?) mora biti navedeno natanko enkrat.*?",
+        "response": "Račun ne vsebuje matične številke prejemnika eRačuna. Napaka se pojavlja v prilogi <strong>{1}</strong>. Preverite, ali je matična številka prejemnika pravilno izpolnjena in poskusite znova."
+    },
+    {
+        "pattern": ".*?Napaka: Vozlišče matična št\\. izdajatelja \\(pravne osebe\\)(.*?) mora biti navedeno natanko enkrat!.*?",
+        "response": "Račun ne vsebuje matične številke pošiljatelja eRačuna. Preverite, ali je matična številka pravilno izpolnjena in poskusite znova."
     }
 
 
