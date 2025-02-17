@@ -488,6 +488,10 @@
         "response": "Napako prejmete, saj imate zapisan napačen TRR <strong>{1}</strong>. S prejemnikom računa preverite veljavnost navedenega TRR-ja."
     },
     {
+    "pattern": ".*?Napačna oblika reference plačila: (Sklic DOBRO:.*?) (.*?)!.*?",
+    "response": "Napako prejmete, saj imate v podatku <strong>{1}</strong> vpisanih preveč pomišljajev (-). V zapisu sklica sta lahko največ dva pomišljaja. Pomišljaj v zapisu sklica ne sme biti zapisan na petem mestu."
+    },
+    {
         "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (\\d+) in stolpcu (\\d+)! \\(Ime vozlišča: amount, tip vozlišča: Element, opis: The element 'payment_data' has invalid child element 'amount'\\. List of possible elements expected: 'ultimate_debtor, requested_execution_date'\\..*?\\)",
         "response": "Napako prejmete, saj vam v XML dokumentu računa manjka <strong>Datum zapadlosti račun/rok plačila</strong>. Napaka se nahaja v vrstici <strong>{1}</strong> in stolpcu <strong>{2}</strong>."
     }
