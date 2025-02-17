@@ -488,7 +488,7 @@
         "response": "Napako prejmete, saj imate zapisan napačen TRR <strong>{1}</strong>. S prejemnikom računa preverite veljavnost navedenega TRR-ja."
     },
     {
-        "pattern": ".*?Napačna oblika reference plačila: (Sklic DOBRO:.*?) \\((.*?)\\)!.*?",
+        "pattern": ".*?Napačna oblika reference plačila: (Sklic DOBRO:.*?) \\((.*?)\\).*?",
         "response": "Napako prejmete, saj imate v podatku <strong>{1}</strong> vpisanih preveč pomišljajev (-). V zapisu sklica sta lahko največ dva pomišljaja. Pomišljaj v zapisu sklica ne sme biti zapisan na petem mestu."
     },
     {
