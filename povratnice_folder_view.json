@@ -1,4 +1,16 @@
-[
+[    
+    {
+        "pattern": ".*?Napaka: Vozlišče matična št\\. prejemnika \\(pravne osebe\\)(.*?) mora biti navedeno natanko enkrat!.*?",
+        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka matična številka prejemnika računa. Preverite, ali je matična številka prejemnika pravilno izpolnjena in poskusite znova."
+    },
+    {
+        "pattern": ".*?Račun\\s+(.*?)\\s+je blokiran!\\s*\\(user:(.*?),\\s*type:(.*?),\\s*location:(.*?)\\).*?",
+        "response": "Napaka pomeni, da je račun <strong>{1}</strong> blokiran za pošiljanje eDokumentov.<br><br>Do blokade lahko pride zaradi več razlogov:<br>- nimate zakupljenega ustreznega paketa oziroma transakcij za pošiljanje,<br>- zakupljene transakcije za pošiljanje so bile porabljene ali<br>- strošek zakupljenega paketa ni bil poravnan.<br><br>V kolikor želite zakupiti dodatne transakcije oziroma paket za pošiljanje, izpolnite <a href='https://www.bizbox.eu/povprasevanje/' target='_blank'>obrazec za povpraševanje</a>."
+    },
+    {
+        "pattern": ".*?FROM:\\s*Podatkov nismo našli v sistemu!\\s*EADDRESS:(.*?)\\s*\\(user:(.*?),\\s*type:(.*?),\\s*location:(.*?)\\).*?",
+        "response": "Sistem ni našel podatkov za navedeni EADDRESS oziroma uporabnika.<br><br>Preverite:<br>- ali je EADDRESS <strong>{1}</strong> pravilno zapisan,<br>- ali EADDRESS vsebuje predpono <strong>SI</strong> in končnico <strong>.HQ</strong>,<br>- ali je uporabnik <strong>{2}</strong> registriran oziroma ima pravice za podjetje, na katerega se prijavlja,<br>- ali so v EADDRESS-u ali uporabniškem imenu odvečni presledki pred ali za vrednostjo.<br><br>Po popravku podatkov dokument ponovno pošljite."
+    },
     {
         "pattern": "Referenca na naročilo, na katerega se potrditev naročila navezuje \\(BT-9\\), je obvezen podatek.",
         "response": "Napaka pomeni, da v XML dokumentu manjka podatek Referenca na naročilo (BT-9). Preverite XML dokument in vnesite manjkajočo referenco."
@@ -81,7 +93,7 @@
     },
     {
         "pattern": "(.*?)Priloga pod zaporedno št. 1: Dokument ne ustreza predpisani shemi. Dovoljeni dokumenti: UBL 2.1, CEFACT 100.D16B, eSlog 2.00(.*?)",
-        "response": "Dokument ni poslan v ustrezni obliki oz. poslani eSlog 2.0 ni zapisan po predpisani XSD shemi – kontaktiraj ponudnika informacijske rešitve."
+        "response": "Napaka pomeni, da XML datoteka ne ustreza predpisani shemi. XML datoteko je potrebno validirati in odpraviti ugotovljene napake.<br><br>XML datoteko nam lahko posredujete in preverili bomo napake ter vam sporočili, kaj je potrebno popraviti.<br><br>Validacijo lahko opravite tudi sami v <a href='https://bizbox.zzi.si/bizBoxUtils/views/eslog20/validate.xhtml' target='_blank'>bizBox pripomočkih – Validacija</a>."
     },
     {
         "pattern": "(.*?)Dokument ne zadovoljava XSD schemu: (.*?) for (.*?)",
@@ -336,7 +348,7 @@
         "response": "Napako prejmete, saj vam v eRačunu manjka (ali pa je ta napačno izpolnjen) podatek, ki označuje skupni znesek za plačilo."
     },
     {
-        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (\\d+) in stolpcu (\\d+)! \\(Ime vozlišča: payment_data, tip vozlišča: EndElement, opis: The element 'payment_data' has incomplete content\\. List of possible elements expected: 'purpose'\\..*?\\)",
+        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (\\d+) in stolpcu (\\d+)!.*?Ime vozlišča: remittance_information.*?List of possible elements expected: 'additional_remittance_information'.*?",
         "response": "Napako prejmete, saj vam v XML dokumentu računa manjka namen plačila."
     },
     {
