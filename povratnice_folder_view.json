@@ -5,11 +5,11 @@
     },
     {
         "pattern": ".*?Račun\\s+(.*?)\\s+je blokiran!\\s*\\(user:(.*?),\\s*type:(.*?),\\s*location:(.*?)\\).*?",
-        "response": "Napaka pomeni, da je račun <strong>{1}</strong> blokiran za pošiljanje eDokumentov.<br><br>Do blokade lahko pride zaradi več razlogov:<br>- nimate zakupljenega ustreznega paketa oziroma transakcij za pošiljanje,<br>- zakupljene transakcije za pošiljanje so bile porabljene ali<br>- strošek zakupljenega paketa ni bil poravnan.<br><br>V kolikor želite zakupiti dodatne transakcije oziroma paket za pošiljanje, izpolnite <a href='https://www.bizbox.eu/povprasevanje/' target='_blank'>obrazec za povpraševanje</a>."
+        "response": "Napaka pomeni, da je račun blokiran za pošiljanje eDokumentov.<br><br>Do blokade lahko pride zaradi več razlogov:<br>- nimate zakupljenega ustreznega paketa oziroma transakcij za pošiljanje,<br>- zakupljene transakcije za pošiljanje so bile porabljene ali<br>- strošek zakupljenega paketa ni bil poravnan.<br><br>V kolikor želite zakupiti dodatne transakcije oziroma paket za pošiljanje, izpolnite <a href='https://www.bizbox.eu/povprasevanje/' target='_blank'>obrazec za povpraševanje</a>."
     },
     {
         "pattern": ".*?FROM:\\s*Podatkov nismo našli v sistemu!\\s*EADDRESS:(.*?)\\s*\\(user:(.*?),\\s*type:(.*?),\\s*location:(.*?)\\).*?",
-        "response": "Sistem ni našel podatkov za navedeni EADDRESS oziroma uporabnika.<br><br>Preverite:<br>- ali je EADDRESS <strong>{1}</strong> pravilno zapisan,<br>- ali EADDRESS vsebuje predpono <strong>SI</strong> in končnico <strong>.HQ</strong>,<br>- ali je uporabnik <strong>{2}</strong> registriran oziroma ima pravice za podjetje, na katerega se prijavlja,<br>- ali so v EADDRESS-u ali uporabniškem imenu odvečni presledki pred ali za vrednostjo.<br><br>Po popravku podatkov dokument ponovno pošljite."
+        "response": "Sistem ni našel podatkov za navedeni EADDRESS oziroma uporabnika.<br><br>Preverite:<br>- ali je EADDRESS pravilno zapisan,<br>- ali EADDRESS vsebuje predpono <strong>SI</strong> in končnico <strong>.HQ</strong>,<br>- ali je uporabnik registriran oziroma ima pravice za podjetje, na katerega se prijavlja,<br>- ali so v EADDRESS-u ali uporabniškem imenu odvečni presledki pred ali za vrednostjo.<br><br>Po popravku podatkov dokument ponovno pošljite."
     },
     {
         "pattern": "Referenca na naročilo, na katerega se potrditev naročila navezuje \\(BT-9\\), je obvezen podatek.",
