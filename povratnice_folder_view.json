@@ -1,4 +1,4 @@
-[    
+[
     {
         "pattern": ".*?Napaka: Vozlišče matična št\\. prejemnika \\(pravne osebe\\)(.*?) mora biti navedeno natanko enkrat!.*?",
         "response": "Napako prejmete, saj vam v XML dokumentu računa manjka matična številka prejemnika računa. Preverite, ali je matična številka prejemnika pravilno izpolnjena in poskusite znova."
@@ -227,7 +227,7 @@
         "pattern": ".*?Pdf priloge ni mogoče najti!.*?",
         "response": "Napako prejmete, saj je v ovojnici računa zabeleženo, da je v paketu računa priložena tudi PDF priloga. V paketu, ki je prispel do našega omrežja pa navedenih PDF prilog ni priloženih."
     },
-     {
+    {
         "pattern": ".*?Pri dostavi v bančno omrežje je parameter ri_account_id \\(IBAN prejemnika\\) obvezen podatek.*?",
         "response": "Napako prejmete, saj pri dostavi v bančno omrežje manjka obvezen podatek IBAN prejemnika."
     },
@@ -526,5 +526,737 @@
     {
         "pattern": ".*?Napaka: Vozlišče matična št\\. izdajatelja \\(pravne osebe\\)(.*?) mora biti navedeno natanko enkrat!.*?",
         "response": "Račun ne vsebuje matične številke pošiljatelja eRačuna. Preverite, ali je matična številka pravilno izpolnjena in poskusite znova."
+    },
+    {
+        "pattern": "^(?![\\s\\S]*cvc-enumeration-valid: Value '[^']+' is not facet-valid)[\\s\\S]*?cvc-type.3.1.3: The value '(.*?)' of element '(.*?)' is not valid\\. \\((\\d+), (\\d+)\\)",
+        "response": "Napako prejmete zaradi praznega polja <strong>${2}</strong>. Praznih polj po standardu eSlog 2.0 v XML računa ne sme vsebovati. Napaka se nahaja v vrstici ${3} in stolpcu ${4}."
+    },
+    {
+        "pattern": "(.*?)Ime datoteke, ki je dodana kot priloga (.+?),? ne sme vsebovati presledkov in šumnikov(.*?)",
+        "response": "Napako prejmete, saj imate PDF prilogo poimenovano s »posebnimi« znaki, šumniki ali presledki. PDF priloga k računu je lahko poimenovana le s malimi in velikimi črkami, številkami in podčrtaji."
+    },
+    {
+        "pattern": "(.*?)Imetnik računa ni registriran prejemnik e[Rr]ačuna(.*?)",
+        "response": "Napako prejmete, saj dokumenta ni mogoče usmeriti v prejemnikov predal. Predlagam, da preverite pri prejemniku, ali ima dejansko omogočen prejem na zapisan IBAN."
+    },
+    {
+        "pattern": ".*?(?:Napaka pri validaciji: )?Velikost prilog je prevelika: (\\d+). Največja dovoljena velikost je (\\d+).*?",
+        "response": "Napako prejmete, saj je velikost prilog <strong>${1}</strong>, kar presega največjo dovoljeno velikost <strong>${2}</strong>. Poskusite zmanjšati velikost prilog in dokument ponovno poslati."
+    },
+    {
+        "pattern": ".*?Priloga z enak[io]m imenom \\((.*?)\\) že obstaja na tem e-računu.*?",
+        "response": "Napako prejmete, saj imate v paketu računa dve enaki prilogi PDF."
+    },
+    {
+        "pattern": ".*?Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici (\\d+) in stolpcu (\\d+)! \\(Ime vozlišča: payment_data, tip vozlišča: EndElement, opis: The element 'payment_data' has incomplete content\\. List of possible elements expected: 'purpose'\\..*?\\)",
+        "response": "Napako prejmete, saj vam v XML dokumentu računa manjka namen plačila."
+    },
+    {
+        "pattern": ".*?(?:Opozorilo: )?Račun (.*?) ne pripada izdajatelju z davčno številko.*?",
+        "response": "Napako prejmete, ker TRR izdajatelja, naveden v računu, ni registriran na tega izdajatelja v UJPnet.<br>Popravite TRR izdajatelja oz. ga registrirajte v UJPnet."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:\\[BR-CO-16\\])[\\s\\S]*$",
+        "response": "Napako prejmete, ker račun krši pravilo EN 16931 (BR-CO-16): znesek za plačilo (BT-115) se ne ujema z zneski računa. Veljati mora: znesek za plačilo = skupni znesek z DDV (BT-112) − plačani znesek (BT-113) + zaokrožitev (BT-114).<br>Uskladite zneske BT-112, BT-113, BT-114 in BT-115 in račun pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:\\[(?:BR-DEC-23|UBL-DT-01)\\])[\\s\\S]*$",
+        "response": "Napako prejmete, ker imajo zneski v računu (npr. neto znesek postavke BT-131) več kot 2 decimalni mesti.<br>Zaokrožite zneske na 2 decimalki in račun pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:ORDRSPBR16:)[\\s\\S]*$",
+        "response": "Napako prejmete pri potrditvi naročila (ORDRSP): vsaka vrstica potrditve naročila (BG-11) mora imeti sklic na vrstico naročila (BT-54). Oznaka [GSG26#: n] pove, v kateri vrstici podatek manjka.<br>V vsako vrstico potrditve dodajte sklic na vrstico naročila in dokument pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:cvc-enumeration-valid: Value '[^']+' is not facet-valid)[\\s\\S]*$",
+        "response": "Napako prejmete, ker ima element v dokumentu vrednost, ki je shema ne dovoljuje (npr. 001 namesto 1). Ime elementa je navedeno v besedilu napake, številki v oklepaju pa pomenita vrstico in stolpec.<br>Popravite vrednost navedenega elementa (npr. brez vodilnih ničel) in dokument pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:VatRecoding\\.xsd:)[\\s\\S]*$",
+        "response": "Napako prejmete, ker dokument evidence DDV za SEF ne ustreza predpisani shemi (napačen vrstni red elementov ali manjkajoč element). V besedilu napake je naveden element, pri katerem je napaka, in element, ki je pričakovan.<br>Popravite strukturo dokumenta in ga pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:-255: [^\\s:]+\\.(?:jasper|jrxml): )[\\s\\S]*$",
+        "response": "Napaka pomeni, da PDF vizualizacije dokumenta ni bilo mogoče izdelati. Praviloma ne gre za napako uporabnika.<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^(?![\\s\\S]*\\[BR-CO-16\\])(?![\\s\\S]*\\[BR-DEC-23\\])(?![\\s\\S]*\\[UBL-DT-01\\])(?![\\s\\S]*An Invoice shall have the Sum of Invoice line net amount \\(BT-106\\))(?![\\s\\S]*Document level allowance amount \\(BT-92\\))[\\s\\S]*?(?:-255: : (?:Error message: )?\\[(?:BR|UBL)-[A-Z0-9-]+\\])[\\s\\S]*$",
+        "response": "Napako prejmete, ker račun krši poslovno pravilo standarda EN 16931. Oznaka v oglatem oklepaju (npr. [BR-…]) pove, katero pravilo je kršeno, oznake BT-xxx pa, katerih polj se napaka tiče. Napaka je v podatkih pošiljatelja.<br>Popravite navedena polja v skladu s pravilom in račun pošljite znova."
+    },
+    {
+        "pattern": "^(?![\\s\\S]*ORDRSPBR16:)(?![\\s\\S]*Referenca na naročilo, na katerega se potrditev naročila navezuje \\(BT-9\\))[\\s\\S]*?(?:-255: [A-Z]{3,}BR\\d+: )[\\s\\S]*$",
+        "response": "Napako prejmete, ker dokument eSLOG 2.0 krši poslovno pravilo. V besedilu sta navedena pravilo in mesto v dokumentu (npr. [GSG26#: 1] pomeni 1. vrstico).<br>Popravite dokument po opisu in ga pošljite znova."
+    },
+    {
+        "pattern": "^(?![\\s\\S]*cvc-enumeration-valid: Value '[^']+' is not facet-valid)(?![\\s\\S]*cvc-type\\.3\\.1\\.3: The value '.*?' of element '.*?' is not valid\\. \\(\\d+, \\d+\\))(?![\\s\\S]*cvc-datatype-valid\\.1\\.2\\.1: '.*?' is not a valid value for 'date')[\\s\\S]*?(?:-255: SYS_SCHEMA: Schema validation error:)[\\s\\S]*$",
+        "response": "Napako prejmete, ker dokument eSLOG 2.0 ne ustreza XML shemi. Najpogostejši vzroki so: nedovoljena vrednost elementa (cvc-enumeration-valid), prazen element (cvc-minLength-valid) ali napačen vrstni red oz. manjkajoč element (cvc-complex-type.2.4.a/b). Številki v oklepaju na koncu pomenita vrstico in stolpec.<br>Popravite navedeni element in dokument pošljite znova."
+    },
+    {
+        "pattern": "^(?![\\s\\S]*VatRecoding\\.xsd:)[\\s\\S]*?(?:-255: [^\\s:]+\\.xsd: )[\\s\\S]*$",
+        "response": "Napako prejmete, ker dokument ne ustreza XML shemi ciljnega sistema (npr. SEF). V besedilu je navedena shema in opis napake.<br>Popravite strukturo dokumenta po opisu in ga pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:-255: [^\\s:]+\\.xslt?: )[\\s\\S]*$",
+        "response": "Napaka pomeni, da je bila pretvorba dokumenta v format prejemnika (XSLT) ustavljena. Najpogosteje manjka podatek, ki ga ciljni format zahteva.<br>Če opis navaja manjkajoč podatek, ga dopolnite in dokument pošljite znova. Sicer se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Napačen tip dokumenta za pošiljanje računov v bančno ob?mrežje!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker tega tipa dokumenta ni dovoljeno pošiljati v bančno omrežje.<br>V bančno omrežje pošljite e-račun."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:(?:^|[^\\w])Tip dokumenta \\S*\\s?ni podprt)[\\s\\S]*$",
+        "response": "Napako prejmete, ker tip dokumenta pri pošiljanju v bančno omrežje ni podprt.<br>Pošljite podprt tip dokumenta (e-račun)."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:BIC prejemnika \\[[^\\]]*\\] ni veljaven!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker BIC koda banke prejemnika ni veljavna.<br>Preverite in popravite BIC kodo prejemnika. Pravilno BIC kodo lahko preverite na povezavi <a href='https://www.bsi.si/placila-in-infrastruktura/placilne-storitve-in-elektronski-denar/identifikacijske-oznake-in-kode-bic' target='_blank'>BSI – Kode BIC</a>."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Pri dostavi v bančno omrežje je parameter (?!ri_account_id \\(IBAN prejemnika\\)|ri_receiver_agent,ri_account_id \\(BIC,IBAN prejemnika\\))\\S+ \\([^)]*\\) obvezen podatek)[\\s\\S]*$",
+        "response": "Napako prejmete, ker za dostavo v bančno omrežje manjka obvezen podatek prejemnika. Kateri podatek manjka, je naveden v besedilu napake (v oklepaju).<br>Dopolnite navedeni podatek prejemnika in račun pošljite znova."
+    },
+    {
+        "pattern": "^(?![\\s\\S]*Velikost prilog je prevelika)(?![\\s\\S]*cvc-complex-type\\.2\\.4\\.a: Najden neveljaven začetek vsebine z elementom `creditor`)[\\s\\S]*?(?:Napaka pri validaciji: )[\\s\\S]*$",
+        "response": "Napako prejmete, ker račun ne ustreza shemi bančnega omrežja. Podrobnost napake je navedena za besedilom »Napaka pri validaciji:«.<br>Popravite račun po navedeni podrobnosti in ga pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Napaka pri dostavi dokumenta v bančni sistem!)[\\s\\S]*$",
+        "response": "Napaka pomeni, da dokumenta ni bilo mogoče dostaviti v bančni sistem (datoteka je končala med napakami banke).<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Identifikacijska številka računa je nepravilna)[\\s\\S]*$",
+        "response": "Banka sporoča (šifra 0001), da je IBAN prejemnika napačen ali ne obstaja.<br>Preverite in popravite IBAN prejemnika ter račun pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Dokumenta ni mogoče dostaviti prejemniku)[\\s\\S]*$",
+        "response": "Banka sporoča (šifra 0002), da dokumenta ne more dostaviti prejemniku.<br>S prejemnikom preverite, ali prejema e-račune prek banke."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Drugi razlogi? [–-] potrebna komunikacija z banko)[\\s\\S]*$",
+        "response": "Banka je dokument zavrnila iz drugega razloga, ki ga ni navedla (šifra 0004).<br>Za pojasnilo se je treba obrniti na banko prejemnika."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Drugi razlogi? [–-] potrebna komunikacija s centralnim posrednikom)[\\s\\S]*$",
+        "response": "Banka je dokument zavrnila iz drugega razloga, za katerega je potrebna komunikacija s centralnim posrednikom (šifra 0009).<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Drugi razlogi? [–-] potrebna komunikacija z izdajateljem e-računa)[\\s\\S]*$",
+        "response": "Banka je dokument zavrnila iz drugega razloga, za katerega je potrebna komunikacija z izdajateljem e-računa (šifra 0020).<br>Za pojasnilo se obrnite na banko."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Prejemnikov IBAN ne obstaja)[\\s\\S]*$",
+        "response": "Banka sporoča (šifra 0010), da IBAN prejemnika ne obstaja.<br>Preverite in popravite IBAN prejemnika ter račun pošljite znova."
+    },
+    {
+        "pattern": "^(?![\\s\\S]*Prejemnikov IBAN ne obstaja)[\\s\\S]*?(?:(?:^|[^\\w])IBAN ne obstaja)[\\s\\S]*$",
+        "response": "Banka sporoča (šifra 0013), da IBAN ne obstaja.<br>Preverite in popravite IBAN ter račun pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Banke prejemnika ni v registru)[\\s\\S]*$",
+        "response": "Banka sporoča (šifra 0011), da banke prejemnika ni v registru.<br>Račun je treba prejemniku poslati po drugi poti."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Izdajatelj e-računa ne obstaja)[\\s\\S]*$",
+        "response": "Banka sporoča (šifra 0012), da pošiljatelj ni registriran kot izdajatelj e-računov.<br>Pošiljatelj naj uredi registracijo izdajatelja pri svoji banki."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Podatek o referenci je napačen)[\\s\\S]*$",
+        "response": "Banka sporoča (šifra 0014), da je podatek o referenci napačen.<br>Popravite referenco in račun pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Podatki o referenci prejemnika niso usklajeni z referenco)[\\s\\S]*$",
+        "response": "Banka sporoča (šifra 0015), da referenca ni usklajena z referenco prejemnika iz njegove e-izjave.<br>Preverite referenco iz e-izjave prejemnika in jo popravite."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Podatki v povratnici niso enaki e-izjavi)[\\s\\S]*$",
+        "response": "Banka sporoča (šifra 0016), da se podatki ne ujemajo s podatki e-izjave prejemnika.<br>Preverite podatke e-izjave prejemnika."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Napačna referenčna številka)[\\s\\S]*$",
+        "response": "Banka sporoča (šifra 0019), da je referenčna številka napačna.<br>Popravite referenčno številko in račun pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Ime vozlišča: sender_mailbox, tip vozlišča: Element, opis: The element ['`]sender_eddress['`] has invalid child element ['`]sender_mailbox['`]\\. List of possible elements expected: ['`]sender_agent['`])[\\s\\S]*$",
+        "response": "Napako prejmete, ker v e-naslovu pošiljatelja v ovojnici manjka BIC koda banke pošiljatelja (sender_agent), ki mora biti zapisana pred TRR pošiljatelja (sender_mailbox).<br>Dopolnite BIC kodo banke pošiljatelja in račun pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:\\[ERROR: Napaka pri klicu WS\\])[\\s\\S]*$",
+        "response": "Napaka pomeni, da UJP pri pošiljanju ni odgovoril.<br>Dokument poskusite poslati znova kasneje. Če se napaka ponavlja, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Dokument z ZZINET_ID=\\S+ že obstaja v bazi)[\\s\\S]*$",
+        "response": "Napako prejmete, ker je bil dokument UJP že poslan.<br>Preverite status prvega pošiljanja dokumenta."
+    },
+    {
+        "pattern": "^(?![\\s\\S]*DocType \\[.*?\\] is not supported)[\\s\\S]*?(?:\\[ERROR: Napaka v strukturi ovojnice: )[\\s\\S]*$",
+        "response": "Napaka pomeni, da platforma ni mogla sestaviti UJP ovojnice, zato dokument ni bil poslan na UJP. Podrobnost je navedena v besedilu napake.<br>Če iz podrobnosti ni razvidno, kaj popraviti, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Dokument v prilogi ne ustreza predpisani shemi\\. Napaka v vrstici)[\\s\\S]*$",
+        "response": "Napako prejmete, ker UJP ovojnica ne ustreza predpisani UJP shemi. Pomemben je opis na koncu napake: v njem je naveden element (vozlišče), ki manjka ali je odveč, ter seznam pričakovanih elementov (List of possible elements expected).<br>Popravite ovojnico po opisu in račun pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:eRacun error: .+? not authorized\\.)[\\s\\S]*$",
+        "response": "Napako prejmete, ker pošiljatelj nima pooblastila za eRačun.<br>Urediti je treba pooblastilo pošiljatelja."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:eHramba error: \\{.*?\\}: \\{.*?\\} - \\{.*?\\} not authorized\\.)[\\s\\S]*$",
+        "response": "Napako prejmete, ker ni pravic za shranjevanje dokumenta v eHrambo.<br>Urediti je treba pravice za eHrambo."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:OPAL error:)[\\s\\S]*$",
+        "response": "Napaka pomeni, da je sistem Opal dokument zavrnil ali da je pri pošiljanju prišlo do tehnične napake. Razlog je naveden za »OPAL error:«.<br>Ukrepajte glede na navedeno sporočilo. Če se napaka ponavlja, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:BASS error: \\\".*?\\\" following exception occurred\\.)[\\s\\S]*$",
+        "response": "Napaka pomeni, da je pri pošiljanju v BASS prišlo do tehnične napake.<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Pri procesiranju e-Računa v Bass je prišlo do napake, napačni podatki)[\\s\\S]*$",
+        "response": "Napako prejmete, ker je BASS pri obdelavi e-računa zaznal napačne podatke.<br>Preverite podatke v e-računu. Če se napaka ponavlja, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:mBills: )[\\s\\S]*$",
+        "response": "Napaka pomeni, da je mBills dokument zavrnil ali da je pri povezavi z mBills prišlo do tehnične napake. Razlog je naveden za »mBills:«.<br>Če gre za zavrnitev (npr. dokument ni v skladu s shemo), popravite dokument po besedilu. Če gre za tehnično napako (npr. Connection timed out) in se ponavlja, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:DocType: \\S+ not supported!!!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker ta tip dokumenta za izbrano pot pošiljanja ni podprt.<br>Pošljite podprt tip dokumenta. Če se napaka ponavlja, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:The issuer is not authorized to send the document, as the issuer and buyer information in the document envelope does not align with the information in the document)[\\s\\S]*$",
+        "response": "Napako prejmete, ker se podatki o izdajatelju in kupcu v ovojnici ne ujemajo s podatki v dokumentu.<br>Uskladite podatke v ovojnici s podatki v dokumentu in dokument pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Not delivered to the final recipient due to the recipient TAX_ID \\S+ is not registered in the AMS register)[\\s\\S]*$",
+        "response": "Napako prejmete, ker uporabnik (pošiljatelj) ni prijavljen v eIzvještavanje (register AMS).<br>Urediti je treba prijavo v AMS."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Not delivered to the final recipient TAX_ID \\S+ due to failed e-fiscalization)[\\s\\S]*$",
+        "response": "Napako prejmete, ker je bila fiskalizacija računa zavrnjena. Sledi povratnica 43 z odgovorom davčne uprave.<br>Preverite odgovor v povratnici 43 in popravite račun."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Not delivered to the final recipient TAX_ID 9934:\\S+)[\\s\\S]*$",
+        "response": "Napako prejmete, ker prejemnik ni registriran v omrežju AS4/SML.<br>Prejemnik se mora registrirati."
+    },
+    {
+        "pattern": "^(?![\\s\\S]*due to failed e-fiscalization)[\\s\\S]*?(?:Not delivered to the final recipient TAX_ID (?!9934:)\\S+?\\.(?=\\s|$))[\\s\\S]*$",
+        "response": "Prejemnik ni registriran v registru AMS, zato je bil račun prijavljen v eIzvještavanje. Sledi povratnica 43.<br>Prejemnik se mora registrirati v AMS."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:The recipient with PEPPOL ID \\S+ is not registered to receive this document type via the PEPPOL network)[\\s\\S]*$",
+        "response": "Napako prejmete, ker prejemnik v omrežju Peppol ni registriran za prejem tega tipa dokumenta. Sledi še povratnica »Unforeseen error«.<br>Prejemnik se mora v Peppol registrirati za ta tip dokumenta, sicer je treba dokument poslati po drugi poti."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Unforeseen error: )[\\s\\S]*$",
+        "response": "Napaka pomeni, da je pri pošiljanju v omrežje Peppol prišlo do napake. Koda in opis sta navedena v besedilu.<br>Ukrepajte glede na kodo. Če se napaka ponavlja, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^(?![\\s\\S]*is not registered to receive this document type via the PEPPOL network)(?![\\s\\S]*Unforeseen error: )[\\s\\S]*?(?:EBMS[:_]\\d{4})[\\s\\S]*$",
+        "response": "Napaka pomeni, da je zunanji partner v omrežju AS4 (npr. dostopna točka prejemnika) vrnil napako oz. zavrnil sporočilo. Koda EBMS in opis sta navedena v besedilu.<br>Ukrepajte glede na kodo in kontaktirajte prejemnika. Če se napaka ponavlja, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:IssueDate is not correct because it cannot be different from todays)[\\s\\S]*$",
+        "response": "Napako prejmete, ker datum izdaje računa ni današnji. SEF sprejme le račun z današnjim datumom izdaje.<br>Popravite datum izdaje na dan pošiljanja in račun pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Source invoice number not found)[\\s\\S]*$",
+        "response": "Napako prejmete, ker se dobropis sklicuje na račun, ki ga v SEF ni (napačna številka izvornega računa).<br>Popravite sklic na izvorni račun (številka računa, kot je zapisana v SEF)."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Company that is not a budget type company may not contain PartyIdentificationId \\(JBKJS\\))[\\s\\S]*$",
+        "response": "Napako prejmete, ker kupec ni proračunski uporabnik, račun pa vsebuje številko JBKJS.<br>Iz podatkov kupca odstranite JBKJS in račun pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:When receiver is budget user order number, contract number or lot number is required)[\\s\\S]*$",
+        "response": "Napako prejmete, ker je kupec proračunski uporabnik, zato je obvezna številka naročila, pogodbe ali sklopa (lot).<br>Dodajte številko naročila, pogodbe ali sklopa in račun pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Cannot send document to CIR for this receiver)[\\s\\S]*$",
+        "response": "Napako prejmete, ker za tega prejemnika račun ne sme biti prijavljen v CIR (Centralni register faktur).<br>Račun pošljite brez prijave v CIR (parameter ovojnice SendToCir ne sme biti true)."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Related invoice option must be populated)[\\s\\S]*$",
+        "response": "Napako prejmete, ker manjka podatek o povezanem računu (npr. pri dobropisu, bremepisu ali končnem računu po avansu).<br>Dopolnite podatke o povezanem računu in dokument pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:ApiKey for taxId=\\[.*?\\] not exists!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker za navedeni PIB ni vnesenega API ključa SEF.<br>Vnesti je treba API ključ SEF."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:The sender is not authorized to send INVOIC documents!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker pošiljatelj nima pravice za pošiljanje računov v SEF.<br>Urediti je treba pravice pošiljatelja."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:The recipient's eLocation cannot be different from the sender's eLocation for this document type!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker mora biti pri tem tipu dokumenta prejemnik enak pošiljatelju.<br>Popravite prejemnika in dokument pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:The VAT_RECORDING document contains an invalid version!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker ima dokument evidence DDV napačno verzijo.<br>Pošljite dokument v pravilni verziji."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:The sender is not authorized to send VAT_RECORDING documents!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker pošiljatelj nima pravice za pošiljanje evidence DDV.<br>Urediti je treba pravice pošiljatelja."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:eFakturaRSSendAck)[\\s\\S]*$",
+        "response": "Napaka pomeni, da preklic, storno ali odgovor na račun v SEF ni uspel. Povratnica se nanaša na vaš odgovor, ne na račun.<br>Preverite stanje v SEF. Razlog je zapisan v sistemskih dnevnikih, zato se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:(?:Error|Warning) [A-Z_]+ \\[[A-Z]{2}-[A-Z]{2}-\\d+\\][\\s\\S]*?Path:/)[\\s\\S]*$",
+        "response": "Napako prejmete, ker je SEF zavrnil eOtpremnico. V besedilu sta navedena kršeno pravilo (npr. [BR-RS-12]) in pot do polja (Path:).<br>Popravite navedeno polje in eOtpremnico pošljite znova."
+    },
+    {
+        "pattern": "^(?!\\s*java\\.)(?![\\s\\S]*IssueDate is not correct because it cannot be different from todays)(?![\\s\\S]*Source invoice number not found)(?![\\s\\S]*Company that is not a budget type company may not contain PartyIdentificationId)(?![\\s\\S]*Invoice\\.ID\\.Value: )(?![\\s\\S]*Invoice\\.BillingReference\\.InvoiceDocumentReference\\.ID: Cannot be defined)(?![\\s\\S]*TaxTotal\\.TaxSubtotal\\.TaxCategory\\.)(?![\\s\\S]*invoice\\.AccountingSupplierParty\\.Party\\.EndpointID\\.schemeID: )(?![\\s\\S]*Iznos ukupnog PDV-a)\\s*(?:Err|[a-z][A-Za-z]*(?:\\.[A-Za-z]+)+): \\S[\\s\\S]*$",
+        "response": "Napako prejmete, ker je SEF zavrnil račun. Pred dvopičjem je navedeno polje v dokumentu, na katerega se napaka nanaša (če SEF polja ne vrne, je izpisano »Err«), za dvopičjem pa opis napake.<br>Popravite navedeno polje glede na opis in račun pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:SDIFattura error: sendToFattura:EI01\\b)[\\s\\S]*$",
+        "response": "SdI sporoča, da je datoteka prazna.<br>Preverite dokument in ga pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:SDIFattura error: sendToFattura:EI02\\b)[\\s\\S]*$",
+        "response": "SdI sporoča, da storitev trenutno ni na voljo.<br>Počakajte; sporočilo se bo ponovno obdelalo."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:SDIFattura error: sendToFattura:EI03\\b)[\\s\\S]*$",
+        "response": "SdI sporoča, da uporabnik ni pooblaščen.<br>Urediti je treba pooblastila pri SdI. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^(?![\\s\\S]*sendToFattura:EI0[123]\\b)[\\s\\S]*?(?:SDIFattura error: )[\\s\\S]*$",
+        "response": "Napaka pomeni, da je pri pošiljanju računa na SdI prišlo do tehnične napake.<br>Če se napaka ponavlja, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:(?:^|\\s)E: [^\\n]*?\\beroare\\b)[\\s\\S]*$",
+        "response": "Napako prejmete, ker je romunski sistem ANAF dokument zavrnil (npr. ni pravic v SPV ali račun krši pravilo BR-RO). Pri zavrnitvi računa je v besedilu navedena le prva napaka; vse napake so v prilogi ANAF_ERR (zip).<br>Odprite prilogo ANAF_ERR (če obstaja), popravite vse navedene napake in dokument pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:\\[ERROR: \\\")[\\s\\S]*$",
+        "response": "Napaka pomeni, da je moj-eRačun dokument zavrnil. Razlog je naveden v narekovajih.<br>Ukrepajte glede na besedilo. Če se napaka ponavlja, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Customer did not download invoice in \\d+ days)[\\s\\S]*$",
+        "response": "Napaka pomeni, da prejemnik računa ni prevzel v predvidenem roku.<br>Račun pošljite znova ali kontaktirajte prejemnika."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:\\{\\\"errors\\\":\\[\\{\\\"source\\\":)[\\s\\S]*$",
+        "response": "Napako prejmete, ker je StoreCove zavrnil račun. V besedilu »source« pove, katero polje je napačno, »details« pa, kaj je narobe.<br>Popravite navedeno polje in račun pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:ISS001:Issuer \\(sender\\) not found for tax number \\(EDB\\))[\\s\\S]*$",
+        "response": "Napako prejmete, ker izdajatelj z navedeno davčno številko (EDB) ni nastavljen na platformi. Ista napaka se lahko pojavi tudi pri sprejemu ali zavrnitvi prejetega računa.<br>Nastaviti je treba izdajatelja. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:ISS003:Issuer \\S+ is inactive)[\\s\\S]*$",
+        "response": "Napako prejmete, ker je izdajatelj neaktiven.<br>Aktivirati je treba izdajatelja. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:ER006:Required parameter \\\"senderEdb\\\" is absent \\(null\\)!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker je davčna številka izdajatelja (EDB) prazna.<br>Dodajte EDB izdajatelja in dokument pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:SND004:Envelope/document mismatch on )[\\s\\S]*$",
+        "response": "Napako prejmete, ker se podatek v ovojnici razlikuje od podatka v dokumentu. Polje ter obe vrednosti (envelope in document) so navedeni v besedilu.<br>Uskladite navedeno polje in dokument pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:VAL001:MK invoice is not valid against the UJP schema)[\\s\\S]*$",
+        "response": "Napako prejmete, ker račun ne ustreza makedonskim pravilom (shema UJP). Kršitve so naštete v besedilu.<br>Popravite vse navedene kršitve in račun pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:SND001:Document with docId .+? was already sent \\(euid )[\\s\\S]*$",
+        "response": "Napako prejmete, ker je bil račun že poslan.<br>Preverite prvo pošiljanje računa."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:SIG002:Keystore/private key error for issuer [^:]+: manjka keystore \\(ISS_KEYSTORE\\))[\\s\\S]*$",
+        "response": "Napako prejmete, ker izdajatelj nima naloženega certifikata za podpis.<br>Naložiti je treba certifikat. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^(?![\\s\\S]*manjka keystore \\(ISS_KEYSTORE\\))[\\s\\S]*?(?:SIG002:Keystore/private key error for issuer )[\\s\\S]*$",
+        "response": "Napako prejmete, ker je certifikat za podpis neveljaven ali je geslo napačno.<br>Popraviti je treba certifikat oz. geslo. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:SIG001:JWS signing failed)[\\s\\S]*$",
+        "response": "Napaka pomeni, da podpisovanje dokumenta ni uspelo.<br>Preveriti je treba certifikat. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:MAP001:eSlog -> MK mapping error)[\\s\\S]*$",
+        "response": "Napaka pomeni, da pretvorba dokumenta v makedonski format ni uspela.<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:HTTP\\d{3}:\\{)[\\s\\S]*$",
+        "response": "Napaka pomeni, da je makedonski UJP zavrnil zahtevo (pošiljanje računa ali sprejem/zavrnitev prejetega računa). Razlog je naveden v odgovoru UJP (polje »message« oz. »errorMessage«).<br>Ukrepajte glede na navedeni razlog. Če se napaka ponavlja, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:NO_EUID:)[\\s\\S]*$",
+        "response": "Napaka pomeni, da UJP ni vrnil identifikatorja računa (euid oz. qr_link).<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:SND005:Source document not found for ZZInet docId)[\\s\\S]*$",
+        "response": "Napako prejmete, ker se odgovor (sprejem ali zavrnitev) nanaša na račun, ki ga ni med prejetimi računi.<br>Odgovor pošljite na prejeti račun."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:SND002:Unsupported document type \\\".*?\\\"; expected \\\"27/29\\\")[\\s\\S]*$",
+        "response": "Napako prejmete, ker povratnica za odgovor na prejeti račun ni tipa 27 ali 29.<br>Uporabite povratnico tipa 27 ali 29."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:SND002:Unsupported document type \\\".*?\\\"; expected \\\"12/27/29\\\")[\\s\\S]*$",
+        "response": "Napako prejmete, ker tip povratnice ni podprt (dovoljeni so 12, 27 in 29).<br>Uporabite podprt tip povratnice."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:UNKNOWN_REJECT_REASON:Unknown bizBox reject reason code)[\\s\\S]*$",
+        "response": "Napako prejmete, ker koda razloga zavrnitve ni znana.<br>Uporabite veljavno kodo razloga zavrnitve."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:FRN001:VALIDATE TO: prejemnik s SIREN \\S*\\s?ni v francoskem imeniku)[\\s\\S]*$",
+        "response": "Napako prejmete, ker kupca ni v francoskem imeniku (ali manjka številka SIREN).<br>Preverite SIREN kupca."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:FRN002:French directory lookup failed for SIREN)[\\s\\S]*$",
+        "response": "Napaka pomeni, da francoski imenik ni bil dosegljiv.<br>Dokument poskusite poslati znova kasneje."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:IOP001:Iopole call failed \\(HTTP \\d+\\))[\\s\\S]*$",
+        "response": "Napaka pomeni, da je Iopole zavrnil zahtevo. Razlog je naveden za HTTP statusom.<br>Ukrepajte glede na podrobnost. Če se napaka ponavlja, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:IOP002:Invoice file exceeds the Iopole size limit)[\\s\\S]*$",
+        "response": "Napako prejmete, ker je datoteka večja od 50 MB.<br>Zmanjšajte priloge in dokument pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:IOP004:Iopole invoiceId \\S+ not found)[\\s\\S]*$",
+        "response": "Napaka pomeni, da Iopole navedenega računa ni našel.<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:OAU001:OAuth2 token acquisition failed)[\\s\\S]*$",
+        "response": "Napaka pomeni, da prijava platforme v Iopole ni uspela. Ne gre za napako uporabnika.<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:MAP001:Transform from format \\\".*?\\\" to \\\"UBL\\.2_1\\.FR\\.CALC\\\" failed)[\\s\\S]*$",
+        "response": "Napaka pomeni, da pretvorba dokumenta v francoski format ni uspela.<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:MAP002:eSlog 2\\.0 document cannot be parsed)[\\s\\S]*$",
+        "response": "Napako prejmete, ker je dokument prazen.<br>Pošljite dokument z vsebino."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:SND002:Unsupported document type \\\".*?\\\"; expected \\\"INVOIC\\\")[\\s\\S]*$",
+        "response": "Napako prejmete, ker tip dokumenta ni podprt; pričakovan je račun (INVOIC).<br>Pošljite račun."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:SND001:Document with docId .+? was already sent \\(invoiceId )[\\s\\S]*$",
+        "response": "Napako prejmete, ker je bil dokument oz. e-poročilo že poslano.<br>Preverite prvo pošiljanje."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:IOP005:Iopole rejected the request as invalid)[\\s\\S]*$",
+        "response": "Napako prejmete, ker podatki e-poročila niso veljavni. Podrobnost je navedena v besedilu.<br>Popravite podatke po podrobnosti in e-poročilo pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:RPT001:Iopole reporting response cannot be parsed)[\\s\\S]*$",
+        "response": "Napaka pomeni, da odgovora na e-poročilo ni bilo mogoče prebrati.<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Invoice rejected by the PDP|(?:^|\\n)\\s*-\\s\\[BR-[A-Z0-9-]+\\])[\\s\\S]*$",
+        "response": "Napako prejmete, ker je francoska platforma (PDP) račun zavrnila. Kršena pravila so navedena v vrsticah pod opisom (npr. [BR-FR-12]).<br>Popravite račun po navedenih pravilih in ga pošljite znova."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Undefined GUID!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker klic nima identifikatorja seje (GUID).<br>Najprej se prijavite (login) in v klicu pošljite GUID."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:CODE=10102 Session does not exists!)[\\s\\S]*$",
+        "response": "Napako prejmete pri preverjanju pošiljatelja, ker je seja uporabnika potekla ali ne obstaja.<br>Ponovno se prijavite."
+    },
+    {
+        "pattern": "^(?![\\s\\S]*CODE=10102 Session does not exists!)[\\s\\S]*?(?:Session does not exists!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker seja ne obstaja ali je potekla (po 2 urah nedejavnosti).<br>Ponovno se prijavite."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Session does not exist!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker je seja v ZZInet potekla.<br>Ponovno se prijavite."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Seja ne obstaja! \\(guid=)[\\s\\S]*$",
+        "response": "Napako prejmete, ker je seja v varnostnem sistemu že potekla.<br>Ponovno se prijavite."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Required parameter \\\"upoId\\\" is absent \\(null\\)!)[\\s\\S]*$",
+        "response": "Napako prejmete pri pošiljanju povratnice, ker navedeni račun pošiljatelja povratnice v ZZInet ne obstaja.<br>Preverite račun pošiljatelja povratnice."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Required parameter \\\"documenet\\\" is absent \\(null\\)!)[\\s\\S]*$",
+        "response": "Napaka v imenu parametra v vmesniku REST.<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Validate FROM[^\\n]*?Required parameter \\\"dotName\\\" is absent)[\\s\\S]*$",
+        "response": "Napako prejmete pri preverjanju pošiljatelja, ker tip dokumenta ni bil podan.<br>V klicu podajte tip dokumenta."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Validate FROM[^\\n]*?Required parameter \\\"(?:location|guid)\\\" is absent)[\\s\\S]*$",
+        "response": "Napako prejmete pri preverjanju pošiljatelja, ker v klicu manjka podatek o pošiljatelju (location) ali o seji (guid).<br>Preverite klic oz. se ponovno prijavite."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Required parameter \\\"locationTo\\\" is absent)[\\s\\S]*$",
+        "response": "Napako prejmete, ker v klicu manjka prejemnik.<br>Dopolnite prejemnika."
+    },
+    {
+        "pattern": "^(?![\\s\\S]*Validate (?:FROM|TO) \\(ELocation:)[\\s\\S]*?(?:Required parameter \\\"(?!(?:upoId|documenet|senderEdb|dotName|location|guid|locationTo)\\\")[^\\\"]+\\\" is absent \\(null\\)!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker v klicu manjka obvezen podatek. Ime manjkajočega podatka je navedeno v narekovajih.<br>Dopolnite klic z navedenim podatkom."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Prijava na imenski strežnik ni uspela\\. Napačno uporabniško ime ali geslo)[\\s\\S]*$",
+        "response": "Napako prejmete, ker prijava ni uspela:<br>- pri prijavi je napačno uporabniško ime ali geslo oz. uporabnik ne obstaja;<br>- pri spremembi gesla je napačno vneseno staro geslo.<br>Preverite uporabniško ime in geslo; po potrebi ponastavite geslo."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Povezava z imenskim strežnikom ni bila vzpostavljena)[\\s\\S]*$",
+        "response": "Napaka pomeni, da imenski strežnik (LDAP) ni dosegljiv.<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Napaka pri dostopu do properties datoteke za LDAP)[\\s\\S]*$",
+        "response": "Napaka v konfiguraciji prijave.<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:(?:^|[^\\w])Uporabnik \\S+ ne obstaja)[\\s\\S]*$",
+        "response": "Napako prejmete, ker uporabnika ni v imenskem strežniku.<br>Preverite uporabniški račun."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Sprememba gesla uporabnika \\S+ na imenskem strežniku neuspešna)[\\s\\S]*$",
+        "response": "Napako prejmete, ker novo geslo ni bilo sprejeto (npr. ne ustreza pravilom za geslo).<br>Izberite geslo, ki ustreza pravilom."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Invalid sender!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker ovojnica nima pošiljatelja (From).<br>Dopolnite pošiljatelja v ovojnici."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Invalid recipient!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker ovojnica nima prejemnika (To).<br>Dopolnite prejemnika v ovojnici."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Not authorized to send documents!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker uporabnik nima pravice pošiljanja za podjetje pošiljatelja (vloga v eNabiralniku) ali pa pošiljatelj nima eLokacije.<br>Uporabniku je treba dodeliti vlogo za pošiljanje za to podjetje."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:File envelope\\.xml does not exist in ZIP)[\\s\\S]*$",
+        "response": "Napako prejmete, ker paket (ZIP) nima ovojnice envelope.xml.<br>Pošljite pravilen paket z ovojnico envelope.xml."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Following exception occurred Following exception occurred null!!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker najverjetneje prejemnik v registru ni bil najden.<br>Preverite eLokacijo prejemnika. Če je pravilna, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Following exception occurred DocType does not exist!!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker tipa dokumenta ni bilo mogoče prepoznati.<br>Preverite format dokumenta oz. v klicu podajte tip dokumenta."
+    },
+    {
+        "pattern": "^(?![\\s\\S]*occurred DocType does not exist!!)[\\s\\S]*?(?:DocType does not exist!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker tipa dokumenta ni bilo mogoče prepoznati (neveljaven XML ali neznan format).<br>Preverite dokument."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Incorrect user name or password!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker uporabnik nima dostopa do računa (pošiljatelja) v ZZInet.<br>Preverite, ali je uporabnik povezan z računom pošiljatelja."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Recipient field does not exist! TO=)[\\s\\S]*$",
+        "response": "Napako prejmete, ker prejemnik po izračunu nima naslova.<br>Preverite prejemnika."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Param 'To->EAddress' is missing in envelope!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker v ovojnici manjka e-naslov prejemnika.<br>Dopolnite ovojnico."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Param 'From->EAddress' is missing in envelope!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker v ovojnici manjka e-naslov pošiljatelja.<br>Dopolnite ovojnico."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Error at document: file is missing!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker manjka datoteka dokumenta.<br>Dodajte manjkajočo datoteko."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Error at attach?ement \\d+\\s*\\(.*?\\): file is missing!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker manjka datoteka priloge (številka in ime priloge sta navedena v besedilu).<br>Dodajte manjkajočo datoteko."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Account does not exist!\\s*From:)[\\s\\S]*$",
+        "response": "Napako prejmete, ker račun pošiljatelja v ZZInet ne obstaja.<br>Preverite račun pošiljatelja."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Account does not exist!\\s*To:)[\\s\\S]*$",
+        "response": "Napako prejmete, ker račun prejemnika v ZZInet ne obstaja.<br>Preverite prejemnika."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Account is not active!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker račun ni aktiven.<br>Račun je treba aktivirati."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:No pending subscription!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker račun nima veljavne naročnine.<br>Urediti je treba naročnino."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Error generating acknowledgement: Access not allowed!)[\\s\\S]*$",
+        "response": "Napako prejmete pri pošiljanju povratnice: dokument ne obstaja, ne pripada uporabniku, je sam povratnica ali tip povratnice ni dovoljen. Dovoljeni tipi so 1, 4, 27 in 29 (12 in -99 nista dovoljena).<br>Preverite številko dokumenta in tip povratnice."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Error generating acknowledgement: Document does not exist!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker izvorni dokument nima ovojnice.<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Error generating acknowledgement: (?!Access not allowed!|Document does not exist!))[\\s\\S]*$",
+        "response": "Napaka pomeni, da je pri pripravi povratnice prišlo do druge napake.<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Document does not exist or you do not have the rights to it!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker dokument ne obstaja ali uporabnik ni ne pošiljatelj ne prejemnik dokumenta.<br>Preverite številko dokumenta in pravice uporabnika."
+    },
+    {
+        "pattern": "^(?![\\s\\S]*acknowledgement: Document does not exist!)[\\s\\S]*?(?:(?:^|[^\\w])Document does not exist!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker v klicu manjka dokument.<br>Dopolnite klic."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Envelope does not exist!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker v klicu manjka ovojnica.<br>Dopolnite klic."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Following exception occurred Acknowledgement document does not exist!!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker povratnica nima vsebine.<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:The or(?:i)?ginal document \\S+ for acknowledgement message does not exist)[\\s\\S]*$",
+        "response": "Napako prejmete, ker dokument, na katerega se povratnica nanaša, ne obstaja.<br>Preverite številko dokumenta."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Sender of the message shall be the same as company of the original message)[\\s\\S]*$",
+        "response": "Napako prejmete, ker lahko povratnico pošlje le prejemnik izvornega dokumenta.<br>Povratnico pošljite s pravim pošiljateljem."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Receiver of the message shall be the same as sender of the original message)[\\s\\S]*$",
+        "response": "Napako prejmete, ker mora povratnica iti pošiljatelju izvornega dokumenta.<br>Popravite prejemnika povratnice."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Transformacija iz \\S+ v \\S+ ne obstaja!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker zahtevana pretvorba ni podprta (podprte so ZZI→ICL, ICL→ZZI in ZZIENV→ZZI).<br>Uporabite podprto pretvorbo."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Transformation error: )[\\s\\S]*$",
+        "response": "Napako prejmete, ker pretvorba dokumenta ni uspela. Razlog je naveden v opisu (npr. napaka v dokumentu).<br>Popravite dokument po opisu."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Napačni argumenti: pričakovani tipi)[\\s\\S]*$",
+        "response": "Napaka pomeni, da klic prek JSON-RPC ni združljiv s strežnikom (napaka vmesnika).<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^\\s*Not implemented\\s*$",
+        "response": "Napako prejmete, ker klic ni podprt.<br>Uporabite drug klic."
+    },
+    {
+        "pattern": "^(?![\\s\\S]*Validate FROM)[\\s\\S]*?(?:String index out of range: -1)[\\s\\S]*$",
+        "response": "Napako prejmete, ker eLokacija ni v pravilni obliki (dovoljeni predponi sta C: in L:).<br>Popravite eLokacijo."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Validate FROM \\(ELocation: [^)]*\\): Podatkov nismo našli v sistemu! EADDRESS:)[\\s\\S]*$",
+        "response": "Napako prejmete, ker navedeni e-naslov (račun) pošiljatelja ne pripada prijavljenemu uporabniku oz. navedeni eLokaciji pošiljatelja. Če je izpisano EADDRESS:ZZINET, uporabnik ni navedel eLokacije, ampak le ZZInet račun, ki ga nima.<br>Preverite, ali ima uporabnik dostop do lokacije s tem računom, in popravite e-naslov ali eLokacijo pošiljatelja."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Validate FROM \\(ELocation: [^)]*\\): Noben račun ni privzet!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker pošiljatelj ni navedel e-naslova, eLokacija pa nima nastavljenega privzetega računa (ali ga uporabnik nima).<br>Nastavite privzeti račun lokacije ali v ovojnici navedite e-naslov pošiljatelja."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Validate FROM \\(ELocation: [^)]*\\): Račun \\S+ je blokiran!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker je ZZInet račun pošiljatelja blokiran (suspendiran).<br>Preverite razlog blokade; račun odblokira administrator."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Validate FROM \\(ELocation: [^)]*\\): Račun \\S+ ni veljaven!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker je ZZInet račun pošiljatelja izven obdobja veljavnosti (še ne velja ali je potekel).<br>Preverite in podaljšajte obdobje veljavnosti računa."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Validate FROM \\(ELocation: [^)]*\\): CODE=10408 ELocationId ni pravilno definirana\\s*\\()[\\s\\S]*$",
+        "response": "Napako prejmete, ker imenik za eLokacijo pošiljatelja ni vrnil nobenega podjetja oz. lokacije.<br>Preverite, ali pošiljatelj v imeniku obstaja z navedeno eLokacijo."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Validate FROM \\(ELocation: [^)]*\\): CODE=10408 ELocationId ni pravilno definirana(?!\\s*\\())[\\s\\S]*$",
+        "response": "Napako prejmete, ker eLokacija pošiljatelja ni v pravilni obliki (npr. manjka C:/L: ali je napačno število znakov |).<br>Popravite eLokacijo pošiljatelja (npr. C:SI12345678 ali L:SI12345678|HQ)."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Validate FROM \\(ELocation: [^)]*\\): java\\.lang\\.NullPointerException)[\\s\\S]*$",
+        "response": "Napako prejmete, ker za lokacijo pošiljatelja ni vpisanega fizičnega naslova.<br>Dopolnite naslov lokacije v imeniku."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Expected one result \\(or null\\) to be returned by selectOne\\(\\), but found:)[\\s\\S]*$",
+        "response": "Napako prejmete, ker je v imeniku za pošiljatelja več zapisov naslova (podvojeni podatki).<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:CODE=10104 User does not exist!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker uporabnik seje ne obstaja v imeniku.<br>Preverite uporabniški račun."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Validate FROM[\\s\\S]*?### Error querying database)[\\s\\S]*$",
+        "response": "Napaka pomeni, da je prišlo do napake v bazi imenika.<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Validate FROM[^\\n]*?String index out of range:)[\\s\\S]*$",
+        "response": "Napaka pomeni, da je prišlo do napake v bazi imenika, ki je platforma ni znala prebrati.<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:https?://\\S+\\s+(?:java\\.net\\.\\w+(?:Exception)?|[^\\n]*?HTTP response code: 5\\d\\d))[\\s\\S]*$",
+        "response": "Napaka pomeni, da storitev v ozadju (npr. eImenik ali register) ni dosegljiva.<br>Poskusite znova. Če se napaka ponavlja, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:The e-invoice cannot be sent because the recipient is not registered in the register)[\\s\\S]*$",
+        "response": "Napaka velja za domačo izmenjavo e-računov na Hrvaškem, v Severni Makedoniji in Franciji: prejemnik ni registriran v nacionalnem registru (HR: AMS/SML, MK: UJP, FR: francoski imenik) ali pa register ni bil dosegljiv.<br>Preverite davčno številko prejemnika; prejemnik se mora registrirati. Če je prejemnik registriran, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Elasticsearch error)[\\s\\S]*$",
+        "response": "Napaka pomeni, da iskalnik registra ni deloval.<br>Poskusite znova. Če se napaka ponavlja, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:At least one of 'accountName' 'ELocation\\(Company\\)' is mandatory!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker prejemnik nima ne eLokacije ne e-naslova.<br>Dopolnite prejemnika v ovojnici."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Validate TO \\(ELocation: [^)]*\\): null: !)[\\s\\S]*$",
+        "response": "Napaka pomeni nepričakovano napako v registru (npr. nepopoln račun prejemnika v registru).<br>Gre za napako, ki je uporabnik ne more odpraviti sam. Obrnite se na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Cannot deserialize value of type)[\\s\\S]*$",
+        "response": "Napako prejmete, ker podatki prejemnika v ovojnici niso v pravilni obliki.<br>Preverite ovojnico. Če se napaka ponavlja, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Following exception occurred Validate FROM \\(ELocation: )[\\s\\S]*$",
+        "response": "Napako prejmete, ker pošiljatelj ni prestal preverjanja v imeniku (Validate FROM). Razlog je naveden za eLokacijo.<br>Ukrepajte glede na navedeno sporočilo. Če se napaka ponavlja, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:Following exception occurred Validate TO \\(ELocation: )[\\s\\S]*$",
+        "response": "Napako prejmete, ker prejemnik ni prestal preverjanja v registru (Validate TO). Razlog je naveden za eLokacijo.<br>Ukrepajte glede na navedeno sporočilo. Če se napaka ponavlja, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:PODATKOV NISMO NA(?:Š|S)LI V SISTEMU)[\\s\\S]*$",
+        "response": "Napako prejmete, ker prejemnika ni bilo mogoče najti. Možni vzroki:<br>- podan je le e-naslov prejemnika, ki ne pripada nobenemu aktivnemu podjetju-prejemniku;<br>- podjetje z davčno številko iz eLokacije ni aktivno ali ni označeno kot prejemnik EDI dokumentov;<br>- podjetja v imeniku ni;<br>- dokument bi šel v eNabiralnik, podjetje pa nima aplikacije eNabiralnik.<br>Preverite davčno številko in e-naslov prejemnika ter ali je prejemnik registriran za prejem. Sicer dokument pošljite po drugi poti."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:taxId:\\[.*?\\] externalId=\\[.*?\\] Validate TO: NIMATE PRAVIC ZA PO(?:Š|S)ILJANJE DOKUMENTA!)[\\s\\S]*$",
+        "response": "Napaka pomeni, da računa, prejetega iz banke, ni bilo mogoče dostaviti prejemniku, ker prejemnik nima računa za prejem. Banki se vrne dostavnica s šifro 0003.<br>Prejemnik mora urediti prejem e-računov."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:NIMATE PRAVIC ZA PO(?:Š|S)ILJANJE DOKUMENTA!\\s*\\(type:)[\\s\\S]*$",
+        "response": "Napako prejmete, ker ima prejemnik omejen sprejem dokumentov in vam tega tipa (ali formata) dokumenta ne dovoli. Pošiljatelj ni partner prejemnika, kot partner nima dovoljenega tega tipa ali tip/format pri prejemniku ni nastavljen.<br>Prejemnik naj vas v imeniku doda kot partnerja in vam dovoli ta tip dokumenta. Preverite tudi, ali pošiljate v formatu, ki ga prejemnik sprejema."
+    },
+    {
+        "pattern": "^(?![\\s\\S]*Validate TO: NIMATE PRAVIC)[\\s\\S]*?(?:NIMATE PRAVIC ZA PO(?:Š|S)ILJANJE DOKUMENTA!(?!\\s*\\(type:))[\\s\\S]*$",
+        "response": "Napaka pomeni, da register za prejemnika ni našel nobenega privzetega računa za prejem (pri prejemu iz bank ali UJP).<br>Prejemnik mora imeti aktiven privzeti račun za prejem. Če se napaka ponavlja, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:At least one of 'EAddress' 'ELocation\\(Company\\)' is mandatory!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker prejemnik nima ne eLokacije ne e-naslova.<br>Dopolnite prejemnika."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:CODE=10408 ELocationId is not well formed!)[\\s\\S]*$",
+        "response": "Napako prejmete, ker eLokacija prejemnika ni v pravilni obliki.<br>Popravite eLokacijo prejemnika."
+    },
+    {
+        "pattern": "^(?![\\s\\S]*PODATKOV NISMO NA(?:Š|S)LI)(?![\\s\\S]*NIMATE PRAVIC ZA PO(?:Š|S)ILJANJE)[\\s\\S]*?(?:\\(type:[^,()]*, location to:[^)]*\\))[\\s\\S]*$",
+        "response": "Napaka pomeni, da je imenik zavrnil prejemnika iz drugega razloga (besedilo napiše baza imenika). Če besedilo omenja več zapisov (npr. »more than one row«), ima prejemnik v imeniku za isti tip dokumenta več nastavitev ali je pošiljatelj pri njem vpisan kot partner večkrat.<br>Ukrepajte glede na besedilo. Če se napaka ponavlja, se obrnite na podporo ZZI."
+    },
+    {
+        "pattern": "^[\\s\\S]*?(?:\\[ERROR: (?!\\\"))[\\s\\S]*$",
+        "response": "Napaka pomeni, da je UJP zavrnil dokument. Razlog je naveden v oglatem oklepaju za »ERROR:«.<br>Ukrepajte glede na navedeno besedilo. Če se napaka ponavlja, se obrnite na podporo ZZI."
     }
 ]
